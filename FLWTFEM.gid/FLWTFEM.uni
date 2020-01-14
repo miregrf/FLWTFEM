@@ -1,0 +1,34 @@
+BEGIN TABLE
+ LOAD : N {reference}, 0.001 kN, 0.000001 MN, kg*m/s^2
+ MOMENT : N*m {reference}, 0.001 kN*m, 0.000001 MN*m
+ UNIFORM_LOAD : N/m {reference}, 0.001 kN/m, 0.000001 MN/m
+ PRESSURE : N/m^2 {reference}, 0.001 kN/m^2, 0.000001 MN/m^2
+ LENGTH : m {reference}, 100 cm, 1000 mm
+ TEMPERATURE: Cel
+ MASS: kg 
+ SELF_WEIGHT : N/m^3 {reference}, 0.001 kN/m^3, 0.000001 MN/m^3
+END
+
+BEGIN SYSTEM(INTERNATIONAL)
+ ANGLE :  rad
+ UNIFORM_LOAD : kN/m
+ PRESSURE : kN/m^2
+ LOAD : kN
+ MOMENT : kN*m
+ SELF_WEIGHT : kN/m^3
+ LENGTH : m
+ TEMPERATURE: Cel
+ MASS: kg
+END
+
+USER DEFINED: DISABLED
+
+
+
+
+
+
+
+
+
+
