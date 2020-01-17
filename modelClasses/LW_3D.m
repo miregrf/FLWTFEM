@@ -77,7 +77,7 @@ classdef LW_3D < LW_L1
             nnodes  = length(obj.ElementNodes);
             nodedoflayer = 3*nnodes;
             nlayers = length(obj.Section.Layers);
-            nq      = length(obj.GaussCoefsK);
+            nq      = length(obj.GaussCoefsM);
             M       = zeros ( 3 * nnodes * (nlayers+1) );
             
             for gp = 1:nq
