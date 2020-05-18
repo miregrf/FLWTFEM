@@ -1,0 +1,141 @@
+BOOK:Orthotropic
+NUMBER: 2 MATERIAL: AL
+TITLE: Moduli_of_Elasticity
+QUESTION: Type:
+VALUE: Orthotropic
+STATE: DISABLED
+QUESTION: E1:
+VALUE: 70e9
+HELP: Elasticity module in direction 1
+QUESTION: E2:
+VALUE: 70e9
+HELP: Elasticity module in direction 2
+QUESTION: E3:
+VALUE: 70e9
+HELP: Elasticity module in direction 3
+TITLE: Poisson_Ratios
+QUESTION: ni12:
+VALUE: 0.32
+HELP: Poisson ratio 12
+QUESTION: ni13:
+VALUE: 0.32
+HELP: Poisson ratio 13
+QUESTION: ni23:
+VALUE: 0.32
+HELP: Poisson ratio 23
+TITLE: Shear_Moduli
+QUESTION: G12:
+VALUE: 26.515e9
+HELP: Shear module 12
+QUESTION: G13:
+VALUE: 26.515e9
+HELP: Shear module 13
+QUESTION: G23:
+VALUE: 26.515e9
+HELP: Shear module 23
+TITLE: Other
+QUESTION: Mass_Density:
+VALUE: 2700
+HELP: Mass Density of the Material
+END MATERIAL
+NUMBER: 3 MATERIAL: H100
+TITLE: Moduli_of_Elasticity
+QUESTION: Type:
+VALUE: Orthotropic
+STATE: DISABLED
+QUESTION: E1:
+VALUE: 105e6
+HELP: Elasticity module in direction 1
+QUESTION: E2:
+VALUE: 105e6
+HELP: Elasticity module in direction 2
+QUESTION: E3:
+VALUE: 105e6
+HELP: Elasticity module in direction 3
+TITLE: Poisson_Ratios
+QUESTION: ni12:
+VALUE: 0.3125
+HELP: Poisson ratio 12
+QUESTION: ni13:
+VALUE: 0.3125
+HELP: Poisson ratio 13
+QUESTION: ni23:
+VALUE: 0.3125
+HELP: Poisson ratio 23
+TITLE: Shear_Moduli
+QUESTION: G12:
+VALUE: 40e6
+HELP: Shear module 12
+QUESTION: G13:
+VALUE: 40e6
+HELP: Shear module 13
+QUESTION: G23:
+VALUE: 40e6
+HELP: Shear module 23
+TITLE: Other
+QUESTION: Mass_Density:
+VALUE: 100
+HELP: Mass Density of the Material
+END MATERIAL
+NUMBER: 4 MATERIAL: H250
+TITLE: Moduli_of_Elasticity
+QUESTION: Type:
+VALUE: Orthotropic
+STATE: DISABLED
+QUESTION: E1:
+VALUE: 250e6
+HELP: Elasticity module in direction 1
+QUESTION: E2:
+VALUE: 250e6
+HELP: Elasticity module in direction 2
+QUESTION: E3:
+VALUE: 250e6
+HELP: Elasticity module in direction 3
+TITLE: Poisson_Ratios
+QUESTION: ni12:
+VALUE: 0.15
+HELP: Poisson ratio 12
+QUESTION: ni13:
+VALUE: 0.15
+HELP: Poisson ratio 13
+QUESTION: ni23:
+VALUE: 0.15
+HELP: Poisson ratio 23
+TITLE: Shear_Moduli
+QUESTION: G12:
+VALUE: 108.696e6
+HELP: Shear module 12
+QUESTION: G13:
+VALUE: 108.696e6
+HELP: Shear module 13
+QUESTION: G23:
+VALUE: 108.696e6
+HELP: Shear module 23
+TITLE: Other
+QUESTION: Mass_Density:
+VALUE: 250
+HELP: Mass Density of the Material
+END MATERIAL
+BOOK:Lamina
+NUMBER: 1 MATERIAL: LAM1
+QUESTION: Type:
+VALUE: Lamina
+STATE: DISABLED
+QUESTION: Material:
+VALUE: AL
+QUESTION: Fiber_Angle:
+VALUE: 0.0
+QUESTION: Thickness:
+VALUE: 0.001
+END MATERIAL
+NUMBER: 5 MATERIAL: LAM2
+QUESTION: Type:
+VALUE: Lamina
+STATE: DISABLED
+QUESTION: Material:
+VALUE: H100
+QUESTION: Fiber_Angle:
+VALUE: 0.0
+QUESTION: Thickness:
+VALUE: 0.078
+END MATERIAL
