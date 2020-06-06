@@ -64,9 +64,9 @@ function make_post_res(filename, POSTNODES, POSTELEMENTS, ANALYSISTYPE, RECORDS)
         fprintf(fid,'ComponentNames "X", "Y", "Z" \n');
 
         fprintf(fid,'Values \n');
-        for node = 1:length(POSTNODES)
-            fprintf(fid,'%6i %12.5f %12.5f %12.5f \n', node, POSTNODES(node).DispX, POSTNODES(node).DispY, POSTNODES(node).DispZ);
-        end
+
+        fprintf(fid,'%6i %12.5f %12.5f %12.5f \n', [[1:size(POSTNODES, 2)]; POSTNODES.DispX; POSTNODES.DispY; POSTNODES.DispZ]);
+
         fprintf(fid,'End Values \n');
 
         
