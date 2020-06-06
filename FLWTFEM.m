@@ -10,13 +10,13 @@ clc; clear;
 disp('READING INPUTFILE...')
 
     % Add Paths   
-    addpath([pwd '\materialClasses\']);  addpath([pwd '\modelClasses\']);
-    addpath([pwd '\utilityFunctions\']); addpath([pwd '\postAlgorithms\']);
+    addpath(fullfile(pwd, 'materialClasses'));  addpath(fullfile(pwd, 'modelClasses'));
+    addpath(fullfile(pwd, 'utilityFunctions')); addpath(fullfile(pwd, 'postAlgorithms'));
     
     % Read GiD INPUT FILE
-    DIR = uigetdir;                      [~,NAME] = fileparts(DIR);
-    source = [DIR, '\', NAME,'.dat'];    copyfile(source,pwd,'f');
-    FILENAME = [NAME,'.dat'];            INPUTFILE = fileread(FILENAME);
+    [FILENAME, DIR] = uigetfile('*.*');     [~,NAME] = fileparts(FILENAME);
+    source = fullfile(DIR, [NAME,'.dat']);  copyfile(source,pwd,'f');
+    FILENAME = [NAME,'.dat'];               INPUTFILE = fileread(FILENAME);
     eval(INPUTFILE);                     
     clear source INPUTFILE
     tic
@@ -277,11 +277,11 @@ disp('GENERATING GiD OUTPUT...')
 
 %%  CLOSE ALL
 	close all
-	movefile([pwd,'\', NAME, '.post.msh'],  DIR,  'f');
-    movefile([pwd,'\', NAME, '.post.res'],  DIR,  'f');
-    movefile([pwd,'\', NAME, '.dat'],       DIR,  'f');
+	movefile(fullfile(pwd, [NAME, '.post.msh']),  DIR,  'f');
+    movefile(fullfile(pwd, [NAME, '.post.res']),  DIR,  'f');
+    movefile(fullfile(pwd, [NAME, '.dat']),       DIR,  'f');
 
-    rmpath([pwd '\materialClasses\']);   rmpath([pwd '\modelClasses\']);
-    rmpath([pwd '\utilityFunctions\']);  rmpath([pwd '\postAlgorithms\']);
+    rmpath(fullfile(pwd, 'materialClasses'));  rmpath(fullfile(pwd, 'modelClasses'));
+    rmpath(fullfile(pwd, 'utilityFunctions')); rmpath(fullfile(pwd, 'postAlgorithms'));
     
     clear name DIR FILENAME;    toc
