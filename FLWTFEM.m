@@ -1,4 +1,3 @@
-profile on
 clc; clear;
 %--------------------------------------------------------------------------
 % FLWTFEM MATLAB SOLVER for FINITE ELEMENT ANALYSIS OF MULTILAYER PLATES
