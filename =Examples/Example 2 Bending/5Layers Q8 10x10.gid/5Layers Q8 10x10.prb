@@ -1,0 +1,13 @@
+PROBLEM DATA
+TITLE: Analysis
+QUESTION: Analysis_Type:#CB#(Bending,FreeVibration)
+VALUE: Bending
+DEPENDENCIES: (Bending,        RESTORE,SubLayers:,#CURRENT#,  HIDE,Number_of_Modes:,#CURRENT#)
+DEPENDENCIES: (FreeVibration,  HIDE,SubLayers:,#CURRENT#,     RESTORE,Number_of_Modes:,#CURRENT#)
+QUESTION: SubLayers:
+VALUE: 4
+QUESTION: Number_of_Modes:
+VALUE: 10
+END PROBLEM DATA
+INTERVAL DATA
+END INTERVAL DATA
