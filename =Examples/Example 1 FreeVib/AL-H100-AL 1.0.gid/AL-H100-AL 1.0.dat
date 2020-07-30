@@ -3,7 +3,7 @@
 
 ANALYSISTYPE = 'FreeVibration';
 if strcmp(ANALYSISTYPE,'FreeVibration') == 1
-  MODES = 10;
+  MODES = 50;
 else
   SUBLAYERS = 4;
 end

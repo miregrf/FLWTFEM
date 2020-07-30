@@ -1,11 +1,11 @@
-BeginZE D:\Dropbox\RADOVI RADNO\2 - Paper Meschke\Examples\AL-H100-AL 0.5.gid\AL-H100-AL 0.5.post.vv
-   x -0.078902393579483032 2.2834975719451904
-   y 0.74484574794769287 -0.4080156683921814
+BeginZE D:\---RADOVI FINISH\===OBJAVLJENI RADOVI\2020 - Composite Structures\1 - Revision R1\Examples\Example 1 FreeVib\AL-H100-AL 0.5.gid\AL-H100-AL 0.5.post.vv
+   x -0.79929369688034058 2.4977602958679199
+   y 1.2407364845275879 -0.44014936685562134
    z -15 15
    e 5
-   v 0.57383972406387329 0.046295657753944397 0.039970759302377701
-   r 0.81668049097061157
-   m 0.99251812696456909 -0.012154101394116879 0.12149114161729813 0 0.11841925233602524 0.33822065591812134 -0.9335864782333374 0 -0.02974390797317028 0.94098836183547974 0.3371293842792511 0 0 0 0 1
+   v 0.4206904500526974 -0.064769679970545418 -0.14000647114041292
+   r 0.89399255570115421
+   m 0.95240616798400879 0.19583351910114288 -0.2336059957742691 0 -0.30482545495033264 0.60683548450469971 -0.73405188322067261 0 -0.0019915471784770489 0.77032458782196045 0.63764888048171997 0 0 0 0 1
    c 0 0 0
    pd 0
    pno 0
@@ -29,7 +29,7 @@ BeginZE D:\Dropbox\RADOVI RADNO\2 - Paper Meschke\Examples\AL-H100-AL 0.5.gid\AL
    OGLStereo(EyeDistance) 0.075
    OGLStereo(LeftEyeDistance) 1 0 0 1
    OGLStereo(RightEyeDistance) 0 1 1 1
-EndZE D:\Dropbox\RADOVI RADNO\2 - Paper Meschke\Examples\AL-H100-AL 0.5.gid\AL-H100-AL 0.5.post.vv
+EndZE D:\---RADOVI FINISH\===OBJAVLJENI RADOVI\2020 - Composite Structures\1 - Revision R1\Examples\Example 1 FreeVib\AL-H100-AL 0.5.gid\AL-H100-AL 0.5.post.vv
 
 BeginMirror
    Mirror 0 Angle 0.0 AngleFake -15.0 SizeFactor 2.0 HeightOffset 0.25 Color #d9e5f24d Backlight Off EdgeStyle No Type Scene DrawMode Mirror
@@ -56,13 +56,13 @@ BeginSingleMesh
     Color Shininess: 0.5
     Property Massive: 1
     Property Transparent: 0
-    Property Style: 3932222
+    Property Style: 3932221
     Property Edge Width: 1
     Property Vector Filter Factor: 0
     Property Stream Arrow: 0
   EndMesh: 0
 EndSingleMesh
   Post_Prefs_Vector_Size: 0 32 32 32
-  ResultView: {Id 3} {Contour Fill} Eigen_Value_Analysis_-_Hz 222.16900634765625 Mode_Shape Z 0.0 4 1
+  ResultView: {Id 11} {Contour Fill} Eigen_Value_Analysis_-_Hz 1230.5050048828125 Mode_Shape |Mode_Shape| 0.0 4 1
 EndPostState
 

@@ -1,0 +1,2785 @@
+% ----------------------------------------------------------------------------------
+% ANALYSIS DATA
+
+ANALYSISTYPE = 'Bending';
+if strcmp(ANALYSISTYPE,'FreeVibration') == 1
+  MODES = 10;
+else
+  SUBLAYERS = 4;
+end
+
+
+
+% ----------------------------------------------------------------------------------
+% COORDINATES AND CONNECTIVITY DATA
+
+COORDINATES = [
+     0.00000       4.00000       0.00000; 
+     0.00000       3.80000       0.00000; 
+     0.20000       4.00000       0.00000; 
+     0.00000       3.60000       0.00000; 
+     0.40000       4.00000       0.00000; 
+     0.40000       3.80000       0.00000; 
+     0.20000       3.60000       0.00000; 
+     0.40000       3.60000       0.00000; 
+     0.60000       4.00000       0.00000; 
+     0.00000       3.40000       0.00000; 
+     0.60000       3.60000       0.00000; 
+     0.40000       3.40000       0.00000; 
+     0.00000       3.20000       0.00000; 
+     0.80000       4.00000       0.00000; 
+     0.80000       3.80000       0.00000; 
+     0.20000       3.20000       0.00000; 
+     0.40000       3.20000       0.00000; 
+     0.80000       3.60000       0.00000; 
+     0.60000       3.20000       0.00000; 
+     0.00000       3.00000       0.00000; 
+     1.00000       4.00000       0.00000; 
+     0.80000       3.40000       0.00000; 
+     1.00000       3.60000       0.00000; 
+     0.40000       3.00000       0.00000; 
+     0.80000       3.20000       0.00000; 
+     1.20000       4.00000       0.00000; 
+     0.00000       2.80000       0.00000; 
+     0.20000       2.80000       0.00000; 
+     1.20000       3.80000       0.00000; 
+     1.20000       3.60000       0.00000; 
+     0.40000       2.80000       0.00000; 
+     1.00000       3.20000       0.00000; 
+     0.80000       3.00000       0.00000; 
+     0.60000       2.80000       0.00000; 
+     1.20000       3.40000       0.00000; 
+     0.00000       2.60000       0.00000; 
+     1.40000       4.00000       0.00000; 
+     0.80000       2.80000       0.00000; 
+     1.20000       3.20000       0.00000; 
+     0.40000       2.60000       0.00000; 
+     1.40000       3.60000       0.00000; 
+     1.00000       2.80000       0.00000; 
+     1.20000       3.00000       0.00000; 
+     1.60000       4.00000       0.00000; 
+     0.00000       2.40000       0.00000; 
+     0.80000       2.60000       0.00000; 
+     1.40000       3.20000       0.00000; 
+     1.60000       3.80000       0.00000; 
+     0.20000       2.40000       0.00000; 
+     0.40000       2.40000       0.00000; 
+     1.60000       3.60000       0.00000; 
+     1.20000       2.80000       0.00000; 
+     1.60000       3.40000       0.00000; 
+     0.60000       2.40000       0.00000; 
+     1.60000       3.20000       0.00000; 
+     0.80000       2.40000       0.00000; 
+     1.80000       4.00000       0.00000; 
+     0.00000       2.20000       0.00000; 
+     1.40000       2.80000       0.00000; 
+     1.80000       3.60000       0.00000; 
+     0.40000       2.20000       0.00000; 
+     1.20000       2.60000       0.00000; 
+     1.00000       2.40000       0.00000; 
+     1.60000       3.00000       0.00000; 
+     1.80000       3.20000       0.00000; 
+     0.80000       2.20000       0.00000; 
+     2.00000       4.00000       0.00000; 
+     1.60000       2.80000       0.00000; 
+     0.00000       2.00000       0.00000; 
+     1.20000       2.40000       0.00000; 
+     2.00000       3.80000       0.00000; 
+     0.20000       2.00000       0.00000; 
+     2.00000       3.60000       0.00000; 
+     0.40000       2.00000       0.00000; 
+     2.00000       3.40000       0.00000; 
+     0.60000       2.00000       0.00000; 
+     1.40000       2.40000       0.00000; 
+     1.60000       2.60000       0.00000; 
+     2.00000       3.20000       0.00000; 
+     0.80000       2.00000       0.00000; 
+     1.80000       2.80000       0.00000; 
+     1.20000       2.20000       0.00000; 
+     0.00000       1.80000       0.00000; 
+     2.20000       4.00000       0.00000; 
+     2.20000       3.60000       0.00000; 
+     1.00000       2.00000       0.00000; 
+     2.00000       3.00000       0.00000; 
+     0.40000       1.80000       0.00000; 
+     1.60000       2.40000       0.00000; 
+     2.00000       2.80000       0.00000; 
+     1.20000       2.00000       0.00000; 
+     0.80000       1.80000       0.00000; 
+     2.20000       3.20000       0.00000; 
+     0.00000       1.60000       0.00000; 
+     2.40000       4.00000       0.00000; 
+     1.60000       2.20000       0.00000; 
+     2.40000       3.80000       0.00000; 
+     1.80000       2.40000       0.00000; 
+     0.20000       1.60000       0.00000; 
+     2.40000       3.60000       0.00000; 
+     0.40000       1.60000       0.00000; 
+     1.40000       2.00000       0.00000; 
+     2.00000       2.60000       0.00000; 
+     2.40000       3.40000       0.00000; 
+     0.60000       1.60000       0.00000; 
+     1.20000       1.80000       0.00000; 
+     2.20000       2.80000       0.00000; 
+     2.40000       3.20000       0.00000; 
+     0.80000       1.60000       0.00000; 
+     2.00000       2.40000       0.00000; 
+     1.60000       2.00000       0.00000; 
+     2.40000       3.00000       0.00000; 
+     1.00000       1.60000       0.00000; 
+     0.00000       1.40000       0.00000; 
+     2.60000       4.00000       0.00000; 
+     0.40000       1.40000       0.00000; 
+     2.60000       3.60000       0.00000; 
+     2.40000       2.80000       0.00000; 
+     1.20000       1.60000       0.00000; 
+     2.00000       2.20000       0.00000; 
+     1.80000       2.00000       0.00000; 
+     0.80000       1.40000       0.00000; 
+     1.60000       1.80000       0.00000; 
+     2.20000       2.40000       0.00000; 
+     2.60000       3.20000       0.00000; 
+     2.40000       2.60000       0.00000; 
+     1.40000       1.60000       0.00000; 
+     0.00000       1.20000       0.00000; 
+     2.80000       4.00000       0.00000; 
+     0.20000       1.20000       0.00000; 
+     2.80000       3.80000       0.00000; 
+     2.80000       3.60000       0.00000; 
+     0.40000       1.20000       0.00000; 
+     2.00000       2.00000       0.00000; 
+     2.80000       3.40000       0.00000; 
+     0.60000       1.20000       0.00000; 
+     1.20000       1.40000       0.00000; 
+     2.60000       2.80000       0.00000; 
+     1.60000       1.60000       0.00000; 
+     2.40000       2.40000       0.00000; 
+     0.80000       1.20000       0.00000; 
+     2.80000       3.20000       0.00000; 
+     2.00000       1.80000       0.00000; 
+     2.80000       3.00000       0.00000; 
+     1.00000       1.20000       0.00000; 
+     2.20000       2.00000       0.00000; 
+     2.40000       2.20000       0.00000; 
+     0.00000       1.00000       0.00000; 
+     1.80000       1.60000       0.00000; 
+     3.00000       4.00000       0.00000; 
+     3.00000       3.60000       0.00000; 
+     0.40000       1.00000       0.00000; 
+     1.20000       1.20000       0.00000; 
+     2.80000       2.80000       0.00000; 
+     2.60000       2.40000       0.00000; 
+     1.60000       1.40000       0.00000; 
+     3.00000       3.20000       0.00000; 
+     0.80000       1.00000       0.00000; 
+     2.40000       2.00000       0.00000; 
+     2.00000       1.60000       0.00000; 
+     1.40000       1.20000       0.00000; 
+     2.80000       2.60000       0.00000; 
+     3.20000       4.00000       0.00000; 
+     0.00000       0.80000       0.00000; 
+     3.20000       3.80000       0.00000; 
+     0.20000       0.80000       0.00000; 
+     3.20000       3.60000       0.00000; 
+     1.60000       1.20000       0.00000; 
+     2.80000       2.40000       0.00000; 
+     0.40000       0.80000       0.00000; 
+     3.00000       2.80000       0.00000; 
+     1.20000       1.00000       0.00000; 
+     3.20000       3.40000       0.00000; 
+     2.40000       1.80000       0.00000; 
+     2.20000       1.60000       0.00000; 
+     0.60000       0.80000       0.00000; 
+     2.60000       2.00000       0.00000; 
+     2.00000       1.40000       0.00000; 
+     3.20000       3.20000       0.00000; 
+     0.80000       0.80000       0.00000; 
+     2.80000       2.20000       0.00000; 
+     1.80000       1.20000       0.00000; 
+     3.20000       3.00000       0.00000; 
+     1.00000       0.80000       0.00000; 
+     2.40000       1.60000       0.00000; 
+     3.00000       2.40000       0.00000; 
+     3.40000       4.00000       0.00000; 
+     0.00000       0.60000       0.00000; 
+     1.60000       1.00000       0.00000; 
+     3.20000       2.80000       0.00000; 
+     1.20000       0.80000       0.00000; 
+     3.40000       3.60000       0.00000; 
+     0.40000       0.60000       0.00000; 
+     2.80000       2.00000       0.00000; 
+     2.00000       1.20000       0.00000; 
+     3.40000       3.20000       0.00000; 
+     1.40000       0.80000       0.00000; 
+     0.80000       0.60000       0.00000; 
+     3.20000       2.60000       0.00000; 
+     2.40000       1.40000       0.00000; 
+     2.60000       1.60000       0.00000; 
+     2.80000       1.80000       0.00000; 
+     2.20000       1.20000       0.00000; 
+     3.20000       2.40000       0.00000; 
+     1.60000       0.80000       0.00000; 
+     0.00000       0.40000       0.00000; 
+     3.60000       4.00000       0.00000; 
+     3.40000       2.80000       0.00000; 
+     3.60000       3.80000       0.00000; 
+     0.20000       0.40000       0.00000; 
+     2.00000       1.00000       0.00000; 
+     3.00000       2.00000       0.00000; 
+     1.20000       0.60000       0.00000; 
+     3.60000       3.60000       0.00000; 
+     0.40000       0.40000       0.00000; 
+     3.60000       3.40000       0.00000; 
+     0.60000       0.40000       0.00000; 
+     3.20000       2.20000       0.00000; 
+     1.80000       0.80000       0.00000; 
+     3.60000       3.20000       0.00000; 
+     0.80000       0.40000       0.00000; 
+     2.80000       1.60000       0.00000; 
+     2.40000       1.20000       0.00000; 
+     1.00000       0.40000       0.00000; 
+     3.60000       3.00000       0.00000; 
+     3.40000       2.40000       0.00000; 
+     1.60000       0.60000       0.00000; 
+     2.00000       0.80000       0.00000; 
+     3.20000       2.00000       0.00000; 
+     3.60000       2.80000       0.00000; 
+     1.20000       0.40000       0.00000; 
+     0.00000       0.20000       0.00000; 
+     3.80000       4.00000       0.00000; 
+     2.80000       1.40000       0.00000; 
+     3.80000       3.60000       0.00000; 
+     0.40000       0.20000       0.00000; 
+     2.60000       1.20000       0.00000; 
+     2.40000       1.00000       0.00000; 
+     3.00000       1.60000       0.00000; 
+     3.60000       2.60000       0.00000; 
+     1.40000       0.40000       0.00000; 
+     3.80000       3.20000       0.00000; 
+     3.20000       1.80000       0.00000; 
+     0.80000       0.20000       0.00000; 
+     2.20000       0.80000       0.00000; 
+     3.60000       2.40000       0.00000; 
+     1.60000       0.40000       0.00000; 
+     3.40000       2.00000       0.00000; 
+     2.00000       0.60000       0.00000; 
+     2.80000       1.20000       0.00000; 
+     3.80000       2.80000       0.00000; 
+     1.20000       0.20000       0.00000; 
+     0.00000       0.00000       0.00000; 
+     4.00000       4.00000       0.00000; 
+     3.20000       1.60000       0.00000; 
+     2.40000       0.80000       0.00000; 
+     0.20000       0.00000       0.00000; 
+     4.00000       3.80000       0.00000; 
+     0.40000       0.00000       0.00000; 
+     4.00000       3.60000       0.00000; 
+     3.60000       2.20000       0.00000; 
+     1.80000       0.40000       0.00000; 
+     4.00000       3.40000       0.00000; 
+     0.60000       0.00000       0.00000; 
+     4.00000       3.20000       0.00000; 
+     0.80000       0.00000       0.00000; 
+     3.00000       1.20000       0.00000; 
+     2.80000       1.00000       0.00000; 
+     3.60000       2.00000       0.00000; 
+     2.00000       0.40000       0.00000; 
+     3.20000       1.40000       0.00000; 
+     3.80000       2.40000       0.00000; 
+     1.60000       0.20000       0.00000; 
+     4.00000       3.00000       0.00000; 
+     1.00000       0.00000       0.00000; 
+     2.60000       0.80000       0.00000; 
+     2.40000       0.60000       0.00000; 
+     3.40000       1.60000       0.00000; 
+     4.00000       2.80000       0.00000; 
+     1.20000       0.00000       0.00000; 
+     3.60000       1.80000       0.00000; 
+     2.20000       0.40000       0.00000; 
+     1.40000       0.00000       0.00000; 
+     4.00000       2.60000       0.00000; 
+     3.20000       1.20000       0.00000; 
+     2.80000       0.80000       0.00000; 
+     2.00000       0.20000       0.00000; 
+     3.80000       2.00000       0.00000; 
+     1.60000       0.00000       0.00000; 
+     4.00000       2.40000       0.00000; 
+     2.40000       0.40000       0.00000; 
+     3.60000       1.60000       0.00000; 
+     4.00000       2.20000       0.00000; 
+     3.20000       1.00000       0.00000; 
+     1.80000       0.00000       0.00000; 
+     3.00000       0.80000       0.00000; 
+     2.80000       0.60000       0.00000; 
+     3.40000       1.20000       0.00000; 
+     2.60000       0.40000       0.00000; 
+     3.60000       1.40000       0.00000; 
+     2.00000       0.00000       0.00000; 
+     4.00000       2.00000       0.00000; 
+     3.80000       1.60000       0.00000; 
+     2.40000       0.20000       0.00000; 
+     3.20000       0.80000       0.00000; 
+     3.60000       1.20000       0.00000; 
+     2.80000       0.40000       0.00000; 
+     4.00000       1.80000       0.00000; 
+     2.20000       0.00000       0.00000; 
+     2.40000       0.00000       0.00000; 
+     4.00000       1.60000       0.00000; 
+     3.40000       0.80000       0.00000; 
+     3.20000       0.60000       0.00000; 
+     3.00000       0.40000       0.00000; 
+     3.60000       1.00000       0.00000; 
+     3.80000       1.20000       0.00000; 
+     2.80000       0.20000       0.00000; 
+     2.60000       0.00000       0.00000; 
+     4.00000       1.40000       0.00000; 
+     3.20000       0.40000       0.00000; 
+     3.60000       0.80000       0.00000; 
+     4.00000       1.20000       0.00000; 
+     2.80000       0.00000       0.00000; 
+     3.60000       0.60000       0.00000; 
+     3.40000       0.40000       0.00000; 
+     3.20000       0.20000       0.00000; 
+     3.80000       0.80000       0.00000; 
+     4.00000       1.00000       0.00000; 
+     3.00000       0.00000       0.00000; 
+     3.60000       0.40000       0.00000; 
+     3.20000       0.00000       0.00000; 
+     4.00000       0.80000       0.00000; 
+     3.80000       0.40000       0.00000; 
+     3.60000       0.20000       0.00000; 
+     4.00000       0.60000       0.00000; 
+     3.40000       0.00000       0.00000; 
+     3.60000       0.00000       0.00000; 
+     4.00000       0.40000       0.00000; 
+     3.80000       0.00000       0.00000; 
+     4.00000       0.20000       0.00000; 
+     4.00000       0.00000       0.00000; 
+];
+
+
+NELEM = 100;
+NNODE = 341;
+
+
+
+% ----------------------------------------------------------------------------------
+% GENERATION OF MATERIALS AND LAMINAS DATA
+
+count1 = 0;
+count2 = 0;
+  count1 = count1 + 1;
+  MATERIALS(count1) = OrthotropicMaterial('MAT1', 25e6,1e6,1e6, 0.25,0.25,0.25, 0.5e6,0.5e6,0.2e6, 0);
+
+  count2 = count2 + 1;
+  for i = 1:count1
+    if strcmp('MAT1', MATERIALS(i).MaterialName) == 1
+      LAMINAS(count2) = OrthotropicLamina('LAM1', MATERIALS(i),0.0,0.1);
+    end
+  end    
+  count2 = count2 + 1;
+  for i = 1:count1
+    if strcmp('MAT1', MATERIALS(i).MaterialName) == 1
+      LAMINAS(count2) = OrthotropicLamina('LAM2', MATERIALS(i),90,0.1);
+    end
+  end    
+clear count1 count2
+
+
+
+% ----------------------------------------------------------------------------------
+% ASSIGNED DATA TO ELEMENTS
+
+ELEMENTSDATA = cell(100,5);
+  ELEMENTSDATA{1,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{2,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{3,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{4,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{5,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{6,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{7,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{8,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{9,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{10,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{11,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{12,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{13,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{14,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{15,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{16,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{17,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{18,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{19,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{20,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{21,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{22,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{23,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{24,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{25,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{26,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{27,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{28,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{29,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{30,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{31,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{32,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{33,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{34,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{35,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{36,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{37,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{38,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{39,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{40,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{41,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{42,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{43,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{44,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{45,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{46,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{47,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{48,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{49,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{50,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{51,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{52,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{53,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{54,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{55,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{56,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{57,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{58,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{59,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{60,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{61,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{62,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{63,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{64,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{65,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{66,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{67,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{68,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{69,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{70,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{71,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{72,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{73,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{74,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{75,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{76,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{77,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{78,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{79,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{80,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{81,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{82,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{83,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{84,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{85,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{86,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{87,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{88,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{89,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{90,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{91,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{92,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{93,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{94,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{95,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{96,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{97,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{98,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{99,5} = [0 0 0 0 0 0];
+  ELEMENTSDATA{100,5} = [0 0 0 0 0 0];
+
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{1,2} = 'RED';
+  ELEMENTSDATA{1,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{2,2} = 'RED';
+  ELEMENTSDATA{2,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{3,2} = 'RED';
+  ELEMENTSDATA{3,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{4,2} = 'RED';
+  ELEMENTSDATA{4,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{5,2} = 'RED';
+  ELEMENTSDATA{5,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{6,2} = 'RED';
+  ELEMENTSDATA{6,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{7,2} = 'RED';
+  ELEMENTSDATA{7,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{8,2} = 'RED';
+  ELEMENTSDATA{8,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{9,2} = 'RED';
+  ELEMENTSDATA{9,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{10,2} = 'RED';
+  ELEMENTSDATA{10,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{11,2} = 'RED';
+  ELEMENTSDATA{11,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{12,2} = 'RED';
+  ELEMENTSDATA{12,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{13,2} = 'RED';
+  ELEMENTSDATA{13,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{14,2} = 'RED';
+  ELEMENTSDATA{14,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{15,2} = 'RED';
+  ELEMENTSDATA{15,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{16,2} = 'RED';
+  ELEMENTSDATA{16,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{17,2} = 'RED';
+  ELEMENTSDATA{17,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{18,2} = 'RED';
+  ELEMENTSDATA{18,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{19,2} = 'RED';
+  ELEMENTSDATA{19,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{20,2} = 'RED';
+  ELEMENTSDATA{20,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{21,2} = 'RED';
+  ELEMENTSDATA{21,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{22,2} = 'RED';
+  ELEMENTSDATA{22,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{23,2} = 'RED';
+  ELEMENTSDATA{23,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{24,2} = 'RED';
+  ELEMENTSDATA{24,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{25,2} = 'RED';
+  ELEMENTSDATA{25,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{26,2} = 'RED';
+  ELEMENTSDATA{26,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{27,2} = 'RED';
+  ELEMENTSDATA{27,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{28,2} = 'RED';
+  ELEMENTSDATA{28,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{29,2} = 'RED';
+  ELEMENTSDATA{29,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{30,2} = 'RED';
+  ELEMENTSDATA{30,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{31,2} = 'RED';
+  ELEMENTSDATA{31,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{32,2} = 'RED';
+  ELEMENTSDATA{32,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{33,2} = 'RED';
+  ELEMENTSDATA{33,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{34,2} = 'RED';
+  ELEMENTSDATA{34,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{35,2} = 'RED';
+  ELEMENTSDATA{35,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{36,2} = 'RED';
+  ELEMENTSDATA{36,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{37,2} = 'RED';
+  ELEMENTSDATA{37,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{38,2} = 'RED';
+  ELEMENTSDATA{38,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{39,2} = 'RED';
+  ELEMENTSDATA{39,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{40,2} = 'RED';
+  ELEMENTSDATA{40,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{41,2} = 'RED';
+  ELEMENTSDATA{41,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{42,2} = 'RED';
+  ELEMENTSDATA{42,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{43,2} = 'RED';
+  ELEMENTSDATA{43,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{44,2} = 'RED';
+  ELEMENTSDATA{44,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{45,2} = 'RED';
+  ELEMENTSDATA{45,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{46,2} = 'RED';
+  ELEMENTSDATA{46,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{47,2} = 'RED';
+  ELEMENTSDATA{47,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{48,2} = 'RED';
+  ELEMENTSDATA{48,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{49,2} = 'RED';
+  ELEMENTSDATA{49,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{50,2} = 'RED';
+  ELEMENTSDATA{50,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{51,2} = 'RED';
+  ELEMENTSDATA{51,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{52,2} = 'RED';
+  ELEMENTSDATA{52,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{53,2} = 'RED';
+  ELEMENTSDATA{53,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{54,2} = 'RED';
+  ELEMENTSDATA{54,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{55,2} = 'RED';
+  ELEMENTSDATA{55,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{56,2} = 'RED';
+  ELEMENTSDATA{56,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{57,2} = 'RED';
+  ELEMENTSDATA{57,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{58,2} = 'RED';
+  ELEMENTSDATA{58,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{59,2} = 'RED';
+  ELEMENTSDATA{59,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{60,2} = 'RED';
+  ELEMENTSDATA{60,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{61,2} = 'RED';
+  ELEMENTSDATA{61,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{62,2} = 'RED';
+  ELEMENTSDATA{62,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{63,2} = 'RED';
+  ELEMENTSDATA{63,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{64,2} = 'RED';
+  ELEMENTSDATA{64,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{65,2} = 'RED';
+  ELEMENTSDATA{65,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{66,2} = 'RED';
+  ELEMENTSDATA{66,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{67,2} = 'RED';
+  ELEMENTSDATA{67,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{68,2} = 'RED';
+  ELEMENTSDATA{68,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{69,2} = 'RED';
+  ELEMENTSDATA{69,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{70,2} = 'RED';
+  ELEMENTSDATA{70,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{71,2} = 'RED';
+  ELEMENTSDATA{71,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{72,2} = 'RED';
+  ELEMENTSDATA{72,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{73,2} = 'RED';
+  ELEMENTSDATA{73,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{74,2} = 'RED';
+  ELEMENTSDATA{74,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{75,2} = 'RED';
+  ELEMENTSDATA{75,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{76,2} = 'RED';
+  ELEMENTSDATA{76,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{77,2} = 'RED';
+  ELEMENTSDATA{77,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{78,2} = 'RED';
+  ELEMENTSDATA{78,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{79,2} = 'RED';
+  ELEMENTSDATA{79,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{80,2} = 'RED';
+  ELEMENTSDATA{80,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{81,2} = 'RED';
+  ELEMENTSDATA{81,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{82,2} = 'RED';
+  ELEMENTSDATA{82,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{83,2} = 'RED';
+  ELEMENTSDATA{83,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{84,2} = 'RED';
+  ELEMENTSDATA{84,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{85,2} = 'RED';
+  ELEMENTSDATA{85,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{86,2} = 'RED';
+  ELEMENTSDATA{86,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{87,2} = 'RED';
+  ELEMENTSDATA{87,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{88,2} = 'RED';
+  ELEMENTSDATA{88,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{89,2} = 'RED';
+  ELEMENTSDATA{89,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{90,2} = 'RED';
+  ELEMENTSDATA{90,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{91,2} = 'RED';
+  ELEMENTSDATA{91,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{92,2} = 'RED';
+  ELEMENTSDATA{92,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{93,2} = 'RED';
+  ELEMENTSDATA{93,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{94,2} = 'RED';
+  ELEMENTSDATA{94,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{95,2} = 'RED';
+  ELEMENTSDATA{95,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{96,2} = 'RED';
+  ELEMENTSDATA{96,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{97,2} = 'RED';
+  ELEMENTSDATA{97,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{98,2} = 'RED';
+  ELEMENTSDATA{98,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{99,2} = 'RED';
+  ELEMENTSDATA{99,3} = CompositeSection('SEC1', LAM); 
+  Layers = strsplit('LAM1 LAM2');
+  LAM = [];
+  for i = 1:length(Layers)  
+    for lam = 1:length(LAMINAS)
+      if strcmp(Layers(i), LAMINAS(lam).LaminaName) == 1
+        LAM = horzcat(LAM, LAMINAS(lam));
+      end
+    end
+  end
+
+  ELEMENTSDATA{100,2} = 'RED';
+  ELEMENTSDATA{100,3} = CompositeSection('SEC1', LAM); 
+clear Layers LAM lam i
+
+  ELEMENTSDATA{     1 ,4} = [   259    215    206    253    236    210    232 257];
+  ELEMENTSDATA{1,1} = 'Q8';
+  ELEMENTSDATA{     2 ,4} = [   266    221    215    259    244    217    236 264];
+  ELEMENTSDATA{2,1} = 'Q8';
+  ELEMENTSDATA{     3 ,4} = [   280    231    221    266    252    224    244 275];
+  ELEMENTSDATA{3,1} = 'Q8';
+  ELEMENTSDATA{     4 ,4} = [   289    247    231    280    273    241    252 283];
+  ELEMENTSDATA{4,1} = 'Q8';
+  ELEMENTSDATA{     5 ,4} = [   301    270    247    289    287    262    273 295];
+  ELEMENTSDATA{5,1} = 'Q8';
+  ELEMENTSDATA{     6 ,4} = [   310    291    270    301    304    282    287 309];
+  ELEMENTSDATA{6,1} = 'Q8';
+  ELEMENTSDATA{     7 ,4} = [   323    307    291    310    317    299    304 318];
+  ELEMENTSDATA{7,1} = 'Q8';
+  ELEMENTSDATA{     8 ,4} = [   331    320    307    323    326    314    317 329];
+  ELEMENTSDATA{8,1} = 'Q8';
+  ELEMENTSDATA{     9 ,4} = [   337    330    320    331    334    325    326 336];
+  ELEMENTSDATA{9,1} = 'Q8';
+  ELEMENTSDATA{    10 ,4} = [   341    338    330    337    340    333    334 339];
+  ELEMENTSDATA{10,1} = 'Q8';
+  ELEMENTSDATA{    11 ,4} = [   215    170    164    206    193    166    188 210];
+  ELEMENTSDATA{11,1} = 'Q8';
+  ELEMENTSDATA{    12 ,4} = [   221    180    170    215    198    176    193 217];
+  ELEMENTSDATA{12,1} = 'Q8';
+  ELEMENTSDATA{    13 ,4} = [   231    191    180    221    213    184    198 224];
+  ELEMENTSDATA{13,1} = 'Q8';
+  ELEMENTSDATA{    14 ,4} = [   247    205    191    231    227    197    213 241];
+  ELEMENTSDATA{14,1} = 'Q8';
+  ELEMENTSDATA{    15 ,4} = [   270    228    205    247    249    219    227 262];
+  ELEMENTSDATA{15,1} = 'Q8';
+  ELEMENTSDATA{    16 ,4} = [   291    256    228    270    277    245    249 282];
+  ELEMENTSDATA{16,1} = 'Q8';
+  ELEMENTSDATA{    17 ,4} = [   307    286    256    291    297    276    277 299];
+  ELEMENTSDATA{17,1} = 'Q8';
+  ELEMENTSDATA{    18 ,4} = [   320    305    286    307    313    296    297 314];
+  ELEMENTSDATA{18,1} = 'Q8';
+  ELEMENTSDATA{    19 ,4} = [   330    321    305    320    324    312    313 325];
+  ELEMENTSDATA{19,1} = 'Q8';
+  ELEMENTSDATA{    20 ,4} = [   338    332    321    330    335    327    324 333];
+  ELEMENTSDATA{20,1} = 'Q8';
+  ELEMENTSDATA{    21 ,4} = [   170    133    128    164    152    130    148 166];
+  ELEMENTSDATA{21,1} = 'Q8';
+  ELEMENTSDATA{    22 ,4} = [   180    141    133    170    158    136    152 176];
+  ELEMENTSDATA{22,1} = 'Q8';
+  ELEMENTSDATA{    23 ,4} = [   191    153    141    180    172    145    158 184];
+  ELEMENTSDATA{23,1} = 'Q8';
+  ELEMENTSDATA{    24 ,4} = [   205    168    153    191    189    161    172 197];
+  ELEMENTSDATA{24,1} = 'Q8';
+  ELEMENTSDATA{    25 ,4} = [   228    195    168    205    211    182    189 219];
+  ELEMENTSDATA{25,1} = 'Q8';
+  ELEMENTSDATA{    26 ,4} = [   256    223    195    228    238    203    211 245];
+  ELEMENTSDATA{26,1} = 'Q8';
+  ELEMENTSDATA{    27 ,4} = [   286    250    223    256    268    237    238 276];
+  ELEMENTSDATA{27,1} = 'Q8';
+  ELEMENTSDATA{    28 ,4} = [   305    285    250    286    294    267    268 296];
+  ELEMENTSDATA{28,1} = 'Q8';
+  ELEMENTSDATA{    29 ,4} = [   321    306    285    305    315    298    294 312];
+  ELEMENTSDATA{29,1} = 'Q8';
+  ELEMENTSDATA{    30 ,4} = [   332    322    306    321    328    316    315 327];
+  ELEMENTSDATA{30,1} = 'Q8';
+  ELEMENTSDATA{    31 ,4} = [   133    101     94    128    116     99    114 130];
+  ELEMENTSDATA{31,1} = 'Q8';
+  ELEMENTSDATA{    32 ,4} = [   141    109    101    133    122    105    116 136];
+  ELEMENTSDATA{32,1} = 'Q8';
+  ELEMENTSDATA{    33 ,4} = [   153    119    109    141    137    113    122 145];
+  ELEMENTSDATA{33,1} = 'Q8';
+  ELEMENTSDATA{    34 ,4} = [   168    139    119    153    156    127    137 161];
+  ELEMENTSDATA{34,1} = 'Q8';
+  ELEMENTSDATA{    35 ,4} = [   195    160    139    168    178    149    156 182];
+  ELEMENTSDATA{35,1} = 'Q8';
+  ELEMENTSDATA{    36 ,4} = [   223    185    160    195    200    175    178 203];
+  ELEMENTSDATA{36,1} = 'Q8';
+  ELEMENTSDATA{    37 ,4} = [   250    222    185    223    234    201    200 237];
+  ELEMENTSDATA{37,1} = 'Q8';
+  ELEMENTSDATA{    38 ,4} = [   285    255    222    250    271    239    234 267];
+  ELEMENTSDATA{38,1} = 'Q8';
+  ELEMENTSDATA{    39 ,4} = [   306    292    255    285    300    278    271 298];
+  ELEMENTSDATA{39,1} = 'Q8';
+  ELEMENTSDATA{    40 ,4} = [   322    311    292    306    319    303    300 316];
+  ELEMENTSDATA{40,1} = 'Q8';
+  ELEMENTSDATA{    41 ,4} = [   101     74     69     94     88     72     83 99];
+  ELEMENTSDATA{41,1} = 'Q8';
+  ELEMENTSDATA{    42 ,4} = [   109     80     74    101     92     76     88 105];
+  ELEMENTSDATA{42,1} = 'Q8';
+  ELEMENTSDATA{    43 ,4} = [   119     91     80    109    106     86     92 113];
+  ELEMENTSDATA{43,1} = 'Q8';
+  ELEMENTSDATA{    44 ,4} = [   139    111     91    119    123    102    106 127];
+  ELEMENTSDATA{44,1} = 'Q8';
+  ELEMENTSDATA{    45 ,4} = [   160    134    111    139    143    121    123 149];
+  ELEMENTSDATA{45,1} = 'Q8';
+  ELEMENTSDATA{    46 ,4} = [   185    159    134    160    174    146    143 175];
+  ELEMENTSDATA{46,1} = 'Q8';
+  ELEMENTSDATA{    47 ,4} = [   222    194    159    185    202    177    174 201];
+  ELEMENTSDATA{47,1} = 'Q8';
+  ELEMENTSDATA{    48 ,4} = [   255    229    194    222    243    212    202 239];
+  ELEMENTSDATA{48,1} = 'Q8';
+  ELEMENTSDATA{    49 ,4} = [   292    269    229    255    281    248    243 278];
+  ELEMENTSDATA{49,1} = 'Q8';
+  ELEMENTSDATA{    50 ,4} = [   311    302    269    292    308    288    281 303];
+  ELEMENTSDATA{50,1} = 'Q8';
+  ELEMENTSDATA{    51 ,4} = [    74     50     45     69     61     49     58 72];
+  ELEMENTSDATA{51,1} = 'Q8';
+  ELEMENTSDATA{    52 ,4} = [    80     56     50     74     66     54     61 76];
+  ELEMENTSDATA{52,1} = 'Q8';
+  ELEMENTSDATA{    53 ,4} = [    91     70     56     80     82     63     66 86];
+  ELEMENTSDATA{53,1} = 'Q8';
+  ELEMENTSDATA{    54 ,4} = [   111     89     70     91     96     77     82 102];
+  ELEMENTSDATA{54,1} = 'Q8';
+  ELEMENTSDATA{    55 ,4} = [   134    110     89    111    120     98     96 121];
+  ELEMENTSDATA{55,1} = 'Q8';
+  ELEMENTSDATA{    56 ,4} = [   159    140    110    134    147    124    120 146];
+  ELEMENTSDATA{56,1} = 'Q8';
+  ELEMENTSDATA{    57 ,4} = [   194    169    140    159    181    155    147 177];
+  ELEMENTSDATA{57,1} = 'Q8';
+  ELEMENTSDATA{    58 ,4} = [   229    204    169    194    218    186    181 212];
+  ELEMENTSDATA{58,1} = 'Q8';
+  ELEMENTSDATA{    59 ,4} = [   269    246    204    229    261    226    218 248];
+  ELEMENTSDATA{59,1} = 'Q8';
+  ELEMENTSDATA{    60 ,4} = [   302    290    246    269    293    272    261 288];
+  ELEMENTSDATA{60,1} = 'Q8';
+  ELEMENTSDATA{    61 ,4} = [    50     31     27     45     40     28     36 49];
+  ELEMENTSDATA{61,1} = 'Q8';
+  ELEMENTSDATA{    62 ,4} = [    56     38     31     50     46     34     40 54];
+  ELEMENTSDATA{62,1} = 'Q8';
+  ELEMENTSDATA{    63 ,4} = [    70     52     38     56     62     42     46 63];
+  ELEMENTSDATA{63,1} = 'Q8';
+  ELEMENTSDATA{    64 ,4} = [    89     68     52     70     78     59     62 77];
+  ELEMENTSDATA{64,1} = 'Q8';
+  ELEMENTSDATA{    65 ,4} = [   110     90     68     89    103     81     78 98];
+  ELEMENTSDATA{65,1} = 'Q8';
+  ELEMENTSDATA{    66 ,4} = [   140    118     90    110    126    107    103 124];
+  ELEMENTSDATA{66,1} = 'Q8';
+  ELEMENTSDATA{    67 ,4} = [   169    154    118    140    162    138    126 155];
+  ELEMENTSDATA{67,1} = 'Q8';
+  ELEMENTSDATA{    68 ,4} = [   204    190    154    169    199    171    162 186];
+  ELEMENTSDATA{68,1} = 'Q8';
+  ELEMENTSDATA{    69 ,4} = [   246    230    190    204    240    208    199 226];
+  ELEMENTSDATA{69,1} = 'Q8';
+  ELEMENTSDATA{    70 ,4} = [   290    279    230    246    284    251    240 272];
+  ELEMENTSDATA{70,1} = 'Q8';
+  ELEMENTSDATA{    71 ,4} = [    31     17     13     27     24     16     20 28];
+  ELEMENTSDATA{71,1} = 'Q8';
+  ELEMENTSDATA{    72 ,4} = [    38     25     17     31     33     19     24 34];
+  ELEMENTSDATA{72,1} = 'Q8';
+  ELEMENTSDATA{    73 ,4} = [    52     39     25     38     43     32     33 42];
+  ELEMENTSDATA{73,1} = 'Q8';
+  ELEMENTSDATA{    74 ,4} = [    68     55     39     52     64     47     43 59];
+  ELEMENTSDATA{74,1} = 'Q8';
+  ELEMENTSDATA{    75 ,4} = [    90     79     55     68     87     65     64 81];
+  ELEMENTSDATA{75,1} = 'Q8';
+  ELEMENTSDATA{    76 ,4} = [   118    108     79     90    112     93     87 107];
+  ELEMENTSDATA{76,1} = 'Q8';
+  ELEMENTSDATA{    77 ,4} = [   154    142    108    118    144    125    112 138];
+  ELEMENTSDATA{77,1} = 'Q8';
+  ELEMENTSDATA{    78 ,4} = [   190    179    142    154    183    157    144 171];
+  ELEMENTSDATA{78,1} = 'Q8';
+  ELEMENTSDATA{    79 ,4} = [   230    220    179    190    225    196    183 208];
+  ELEMENTSDATA{79,1} = 'Q8';
+  ELEMENTSDATA{    80 ,4} = [   279    265    220    230    274    242    225 251];
+  ELEMENTSDATA{80,1} = 'Q8';
+  ELEMENTSDATA{    81 ,4} = [    17      8      4     13     12      7     10 16];
+  ELEMENTSDATA{81,1} = 'Q8';
+  ELEMENTSDATA{    82 ,4} = [    25     18      8     17     22     11     12 19];
+  ELEMENTSDATA{82,1} = 'Q8';
+  ELEMENTSDATA{    83 ,4} = [    39     30     18     25     35     23     22 32];
+  ELEMENTSDATA{83,1} = 'Q8';
+  ELEMENTSDATA{    84 ,4} = [    55     51     30     39     53     41     35 47];
+  ELEMENTSDATA{84,1} = 'Q8';
+  ELEMENTSDATA{    85 ,4} = [    79     73     51     55     75     60     53 65];
+  ELEMENTSDATA{85,1} = 'Q8';
+  ELEMENTSDATA{    86 ,4} = [   108    100     73     79    104     85     75 93];
+  ELEMENTSDATA{86,1} = 'Q8';
+  ELEMENTSDATA{    87 ,4} = [   142    132    100    108    135    117    104 125];
+  ELEMENTSDATA{87,1} = 'Q8';
+  ELEMENTSDATA{    88 ,4} = [   179    167    132    142    173    151    135 157];
+  ELEMENTSDATA{88,1} = 'Q8';
+  ELEMENTSDATA{    89 ,4} = [   220    214    167    179    216    192    173 196];
+  ELEMENTSDATA{89,1} = 'Q8';
+  ELEMENTSDATA{    90 ,4} = [   265    260    214    220    263    235    216 242];
+  ELEMENTSDATA{90,1} = 'Q8';
+  ELEMENTSDATA{    91 ,4} = [     8      5      1      4      6      3      2 7];
+  ELEMENTSDATA{91,1} = 'Q8';
+  ELEMENTSDATA{    92 ,4} = [    18     14      5      8     15      9      6 11];
+  ELEMENTSDATA{92,1} = 'Q8';
+  ELEMENTSDATA{    93 ,4} = [    30     26     14     18     29     21     15 23];
+  ELEMENTSDATA{93,1} = 'Q8';
+  ELEMENTSDATA{    94 ,4} = [    51     44     26     30     48     37     29 41];
+  ELEMENTSDATA{94,1} = 'Q8';
+  ELEMENTSDATA{    95 ,4} = [    73     67     44     51     71     57     48 60];
+  ELEMENTSDATA{95,1} = 'Q8';
+  ELEMENTSDATA{    96 ,4} = [   100     95     67     73     97     84     71 85];
+  ELEMENTSDATA{96,1} = 'Q8';
+  ELEMENTSDATA{    97 ,4} = [   132    129     95    100    131    115     97 117];
+  ELEMENTSDATA{97,1} = 'Q8';
+  ELEMENTSDATA{    98 ,4} = [   167    163    129    132    165    150    131 151];
+  ELEMENTSDATA{98,1} = 'Q8';
+  ELEMENTSDATA{    99 ,4} = [   214    207    163    167    209    187    165 192];
+  ELEMENTSDATA{99,1} = 'Q8';
+  ELEMENTSDATA{   100 ,4} = [   260    254    207    214    258    233    209 235];
+  ELEMENTSDATA{100,1} = 'Q8';
+
+  ELEMENTSDATA{     1 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{     2 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{     3 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{     4 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{     5 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{     6 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{     7 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{     8 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{     9 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    10 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    11 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    12 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    13 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    14 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    15 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    16 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    17 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    18 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    19 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    20 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    21 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    22 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    23 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    24 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    25 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    26 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    27 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    28 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    29 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    30 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    31 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    32 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    33 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    34 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    35 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    36 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    37 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    38 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    39 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    40 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    41 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    42 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    43 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    44 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    45 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    46 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    47 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    48 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    49 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    50 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    51 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    52 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    53 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    54 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    55 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    56 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    57 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    58 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    59 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    60 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    61 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    62 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    63 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    64 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    65 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    66 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    67 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    68 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    69 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    70 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    71 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    72 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    73 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    74 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    75 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    76 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    77 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    78 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    79 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    80 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    81 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    82 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    83 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    84 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    85 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    86 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    87 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    88 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    89 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    90 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    91 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    92 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    93 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    94 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    95 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    96 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    97 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    98 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{    99 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+  ELEMENTSDATA{   100 ,5} = [     0.00000       0.00000   -1000.00000       0.00000       0.00000       0.00000];
+
+
+
+% ----------------------------------------------------------------------------------
+% ASSIGNED DATA TO POINTS
+
+POINTSDATA = cell(341,2);
+  POINTSDATA{1,1} = [0 0 0 0 0 0];
+  POINTSDATA{1,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{2,1} = [0 0 0 0 0 0];
+  POINTSDATA{2,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{3,1} = [0 0 0 0 0 0];
+  POINTSDATA{3,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{4,1} = [0 0 0 0 0 0];
+  POINTSDATA{4,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{5,1} = [0 0 0 0 0 0];
+  POINTSDATA{5,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{6,1} = [0 0 0 0 0 0];
+  POINTSDATA{6,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{7,1} = [0 0 0 0 0 0];
+  POINTSDATA{7,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{8,1} = [0 0 0 0 0 0];
+  POINTSDATA{8,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{9,1} = [0 0 0 0 0 0];
+  POINTSDATA{9,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{10,1} = [0 0 0 0 0 0];
+  POINTSDATA{10,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{11,1} = [0 0 0 0 0 0];
+  POINTSDATA{11,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{12,1} = [0 0 0 0 0 0];
+  POINTSDATA{12,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{13,1} = [0 0 0 0 0 0];
+  POINTSDATA{13,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{14,1} = [0 0 0 0 0 0];
+  POINTSDATA{14,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{15,1} = [0 0 0 0 0 0];
+  POINTSDATA{15,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{16,1} = [0 0 0 0 0 0];
+  POINTSDATA{16,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{17,1} = [0 0 0 0 0 0];
+  POINTSDATA{17,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{18,1} = [0 0 0 0 0 0];
+  POINTSDATA{18,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{19,1} = [0 0 0 0 0 0];
+  POINTSDATA{19,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{20,1} = [0 0 0 0 0 0];
+  POINTSDATA{20,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{21,1} = [0 0 0 0 0 0];
+  POINTSDATA{21,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{22,1} = [0 0 0 0 0 0];
+  POINTSDATA{22,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{23,1} = [0 0 0 0 0 0];
+  POINTSDATA{23,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{24,1} = [0 0 0 0 0 0];
+  POINTSDATA{24,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{25,1} = [0 0 0 0 0 0];
+  POINTSDATA{25,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{26,1} = [0 0 0 0 0 0];
+  POINTSDATA{26,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{27,1} = [0 0 0 0 0 0];
+  POINTSDATA{27,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{28,1} = [0 0 0 0 0 0];
+  POINTSDATA{28,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{29,1} = [0 0 0 0 0 0];
+  POINTSDATA{29,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{30,1} = [0 0 0 0 0 0];
+  POINTSDATA{30,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{31,1} = [0 0 0 0 0 0];
+  POINTSDATA{31,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{32,1} = [0 0 0 0 0 0];
+  POINTSDATA{32,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{33,1} = [0 0 0 0 0 0];
+  POINTSDATA{33,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{34,1} = [0 0 0 0 0 0];
+  POINTSDATA{34,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{35,1} = [0 0 0 0 0 0];
+  POINTSDATA{35,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{36,1} = [0 0 0 0 0 0];
+  POINTSDATA{36,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{37,1} = [0 0 0 0 0 0];
+  POINTSDATA{37,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{38,1} = [0 0 0 0 0 0];
+  POINTSDATA{38,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{39,1} = [0 0 0 0 0 0];
+  POINTSDATA{39,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{40,1} = [0 0 0 0 0 0];
+  POINTSDATA{40,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{41,1} = [0 0 0 0 0 0];
+  POINTSDATA{41,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{42,1} = [0 0 0 0 0 0];
+  POINTSDATA{42,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{43,1} = [0 0 0 0 0 0];
+  POINTSDATA{43,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{44,1} = [0 0 0 0 0 0];
+  POINTSDATA{44,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{45,1} = [0 0 0 0 0 0];
+  POINTSDATA{45,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{46,1} = [0 0 0 0 0 0];
+  POINTSDATA{46,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{47,1} = [0 0 0 0 0 0];
+  POINTSDATA{47,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{48,1} = [0 0 0 0 0 0];
+  POINTSDATA{48,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{49,1} = [0 0 0 0 0 0];
+  POINTSDATA{49,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{50,1} = [0 0 0 0 0 0];
+  POINTSDATA{50,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{51,1} = [0 0 0 0 0 0];
+  POINTSDATA{51,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{52,1} = [0 0 0 0 0 0];
+  POINTSDATA{52,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{53,1} = [0 0 0 0 0 0];
+  POINTSDATA{53,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{54,1} = [0 0 0 0 0 0];
+  POINTSDATA{54,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{55,1} = [0 0 0 0 0 0];
+  POINTSDATA{55,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{56,1} = [0 0 0 0 0 0];
+  POINTSDATA{56,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{57,1} = [0 0 0 0 0 0];
+  POINTSDATA{57,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{58,1} = [0 0 0 0 0 0];
+  POINTSDATA{58,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{59,1} = [0 0 0 0 0 0];
+  POINTSDATA{59,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{60,1} = [0 0 0 0 0 0];
+  POINTSDATA{60,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{61,1} = [0 0 0 0 0 0];
+  POINTSDATA{61,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{62,1} = [0 0 0 0 0 0];
+  POINTSDATA{62,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{63,1} = [0 0 0 0 0 0];
+  POINTSDATA{63,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{64,1} = [0 0 0 0 0 0];
+  POINTSDATA{64,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{65,1} = [0 0 0 0 0 0];
+  POINTSDATA{65,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{66,1} = [0 0 0 0 0 0];
+  POINTSDATA{66,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{67,1} = [0 0 0 0 0 0];
+  POINTSDATA{67,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{68,1} = [0 0 0 0 0 0];
+  POINTSDATA{68,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{69,1} = [0 0 0 0 0 0];
+  POINTSDATA{69,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{70,1} = [0 0 0 0 0 0];
+  POINTSDATA{70,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{71,1} = [0 0 0 0 0 0];
+  POINTSDATA{71,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{72,1} = [0 0 0 0 0 0];
+  POINTSDATA{72,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{73,1} = [0 0 0 0 0 0];
+  POINTSDATA{73,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{74,1} = [0 0 0 0 0 0];
+  POINTSDATA{74,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{75,1} = [0 0 0 0 0 0];
+  POINTSDATA{75,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{76,1} = [0 0 0 0 0 0];
+  POINTSDATA{76,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{77,1} = [0 0 0 0 0 0];
+  POINTSDATA{77,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{78,1} = [0 0 0 0 0 0];
+  POINTSDATA{78,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{79,1} = [0 0 0 0 0 0];
+  POINTSDATA{79,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{80,1} = [0 0 0 0 0 0];
+  POINTSDATA{80,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{81,1} = [0 0 0 0 0 0];
+  POINTSDATA{81,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{82,1} = [0 0 0 0 0 0];
+  POINTSDATA{82,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{83,1} = [0 0 0 0 0 0];
+  POINTSDATA{83,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{84,1} = [0 0 0 0 0 0];
+  POINTSDATA{84,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{85,1} = [0 0 0 0 0 0];
+  POINTSDATA{85,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{86,1} = [0 0 0 0 0 0];
+  POINTSDATA{86,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{87,1} = [0 0 0 0 0 0];
+  POINTSDATA{87,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{88,1} = [0 0 0 0 0 0];
+  POINTSDATA{88,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{89,1} = [0 0 0 0 0 0];
+  POINTSDATA{89,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{90,1} = [0 0 0 0 0 0];
+  POINTSDATA{90,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{91,1} = [0 0 0 0 0 0];
+  POINTSDATA{91,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{92,1} = [0 0 0 0 0 0];
+  POINTSDATA{92,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{93,1} = [0 0 0 0 0 0];
+  POINTSDATA{93,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{94,1} = [0 0 0 0 0 0];
+  POINTSDATA{94,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{95,1} = [0 0 0 0 0 0];
+  POINTSDATA{95,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{96,1} = [0 0 0 0 0 0];
+  POINTSDATA{96,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{97,1} = [0 0 0 0 0 0];
+  POINTSDATA{97,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{98,1} = [0 0 0 0 0 0];
+  POINTSDATA{98,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{99,1} = [0 0 0 0 0 0];
+  POINTSDATA{99,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{100,1} = [0 0 0 0 0 0];
+  POINTSDATA{100,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{101,1} = [0 0 0 0 0 0];
+  POINTSDATA{101,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{102,1} = [0 0 0 0 0 0];
+  POINTSDATA{102,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{103,1} = [0 0 0 0 0 0];
+  POINTSDATA{103,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{104,1} = [0 0 0 0 0 0];
+  POINTSDATA{104,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{105,1} = [0 0 0 0 0 0];
+  POINTSDATA{105,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{106,1} = [0 0 0 0 0 0];
+  POINTSDATA{106,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{107,1} = [0 0 0 0 0 0];
+  POINTSDATA{107,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{108,1} = [0 0 0 0 0 0];
+  POINTSDATA{108,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{109,1} = [0 0 0 0 0 0];
+  POINTSDATA{109,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{110,1} = [0 0 0 0 0 0];
+  POINTSDATA{110,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{111,1} = [0 0 0 0 0 0];
+  POINTSDATA{111,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{112,1} = [0 0 0 0 0 0];
+  POINTSDATA{112,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{113,1} = [0 0 0 0 0 0];
+  POINTSDATA{113,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{114,1} = [0 0 0 0 0 0];
+  POINTSDATA{114,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{115,1} = [0 0 0 0 0 0];
+  POINTSDATA{115,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{116,1} = [0 0 0 0 0 0];
+  POINTSDATA{116,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{117,1} = [0 0 0 0 0 0];
+  POINTSDATA{117,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{118,1} = [0 0 0 0 0 0];
+  POINTSDATA{118,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{119,1} = [0 0 0 0 0 0];
+  POINTSDATA{119,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{120,1} = [0 0 0 0 0 0];
+  POINTSDATA{120,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{121,1} = [0 0 0 0 0 0];
+  POINTSDATA{121,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{122,1} = [0 0 0 0 0 0];
+  POINTSDATA{122,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{123,1} = [0 0 0 0 0 0];
+  POINTSDATA{123,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{124,1} = [0 0 0 0 0 0];
+  POINTSDATA{124,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{125,1} = [0 0 0 0 0 0];
+  POINTSDATA{125,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{126,1} = [0 0 0 0 0 0];
+  POINTSDATA{126,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{127,1} = [0 0 0 0 0 0];
+  POINTSDATA{127,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{128,1} = [0 0 0 0 0 0];
+  POINTSDATA{128,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{129,1} = [0 0 0 0 0 0];
+  POINTSDATA{129,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{130,1} = [0 0 0 0 0 0];
+  POINTSDATA{130,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{131,1} = [0 0 0 0 0 0];
+  POINTSDATA{131,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{132,1} = [0 0 0 0 0 0];
+  POINTSDATA{132,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{133,1} = [0 0 0 0 0 0];
+  POINTSDATA{133,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{134,1} = [0 0 0 0 0 0];
+  POINTSDATA{134,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{135,1} = [0 0 0 0 0 0];
+  POINTSDATA{135,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{136,1} = [0 0 0 0 0 0];
+  POINTSDATA{136,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{137,1} = [0 0 0 0 0 0];
+  POINTSDATA{137,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{138,1} = [0 0 0 0 0 0];
+  POINTSDATA{138,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{139,1} = [0 0 0 0 0 0];
+  POINTSDATA{139,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{140,1} = [0 0 0 0 0 0];
+  POINTSDATA{140,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{141,1} = [0 0 0 0 0 0];
+  POINTSDATA{141,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{142,1} = [0 0 0 0 0 0];
+  POINTSDATA{142,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{143,1} = [0 0 0 0 0 0];
+  POINTSDATA{143,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{144,1} = [0 0 0 0 0 0];
+  POINTSDATA{144,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{145,1} = [0 0 0 0 0 0];
+  POINTSDATA{145,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{146,1} = [0 0 0 0 0 0];
+  POINTSDATA{146,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{147,1} = [0 0 0 0 0 0];
+  POINTSDATA{147,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{148,1} = [0 0 0 0 0 0];
+  POINTSDATA{148,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{149,1} = [0 0 0 0 0 0];
+  POINTSDATA{149,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{150,1} = [0 0 0 0 0 0];
+  POINTSDATA{150,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{151,1} = [0 0 0 0 0 0];
+  POINTSDATA{151,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{152,1} = [0 0 0 0 0 0];
+  POINTSDATA{152,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{153,1} = [0 0 0 0 0 0];
+  POINTSDATA{153,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{154,1} = [0 0 0 0 0 0];
+  POINTSDATA{154,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{155,1} = [0 0 0 0 0 0];
+  POINTSDATA{155,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{156,1} = [0 0 0 0 0 0];
+  POINTSDATA{156,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{157,1} = [0 0 0 0 0 0];
+  POINTSDATA{157,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{158,1} = [0 0 0 0 0 0];
+  POINTSDATA{158,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{159,1} = [0 0 0 0 0 0];
+  POINTSDATA{159,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{160,1} = [0 0 0 0 0 0];
+  POINTSDATA{160,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{161,1} = [0 0 0 0 0 0];
+  POINTSDATA{161,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{162,1} = [0 0 0 0 0 0];
+  POINTSDATA{162,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{163,1} = [0 0 0 0 0 0];
+  POINTSDATA{163,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{164,1} = [0 0 0 0 0 0];
+  POINTSDATA{164,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{165,1} = [0 0 0 0 0 0];
+  POINTSDATA{165,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{166,1} = [0 0 0 0 0 0];
+  POINTSDATA{166,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{167,1} = [0 0 0 0 0 0];
+  POINTSDATA{167,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{168,1} = [0 0 0 0 0 0];
+  POINTSDATA{168,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{169,1} = [0 0 0 0 0 0];
+  POINTSDATA{169,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{170,1} = [0 0 0 0 0 0];
+  POINTSDATA{170,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{171,1} = [0 0 0 0 0 0];
+  POINTSDATA{171,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{172,1} = [0 0 0 0 0 0];
+  POINTSDATA{172,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{173,1} = [0 0 0 0 0 0];
+  POINTSDATA{173,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{174,1} = [0 0 0 0 0 0];
+  POINTSDATA{174,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{175,1} = [0 0 0 0 0 0];
+  POINTSDATA{175,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{176,1} = [0 0 0 0 0 0];
+  POINTSDATA{176,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{177,1} = [0 0 0 0 0 0];
+  POINTSDATA{177,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{178,1} = [0 0 0 0 0 0];
+  POINTSDATA{178,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{179,1} = [0 0 0 0 0 0];
+  POINTSDATA{179,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{180,1} = [0 0 0 0 0 0];
+  POINTSDATA{180,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{181,1} = [0 0 0 0 0 0];
+  POINTSDATA{181,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{182,1} = [0 0 0 0 0 0];
+  POINTSDATA{182,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{183,1} = [0 0 0 0 0 0];
+  POINTSDATA{183,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{184,1} = [0 0 0 0 0 0];
+  POINTSDATA{184,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{185,1} = [0 0 0 0 0 0];
+  POINTSDATA{185,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{186,1} = [0 0 0 0 0 0];
+  POINTSDATA{186,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{187,1} = [0 0 0 0 0 0];
+  POINTSDATA{187,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{188,1} = [0 0 0 0 0 0];
+  POINTSDATA{188,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{189,1} = [0 0 0 0 0 0];
+  POINTSDATA{189,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{190,1} = [0 0 0 0 0 0];
+  POINTSDATA{190,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{191,1} = [0 0 0 0 0 0];
+  POINTSDATA{191,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{192,1} = [0 0 0 0 0 0];
+  POINTSDATA{192,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{193,1} = [0 0 0 0 0 0];
+  POINTSDATA{193,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{194,1} = [0 0 0 0 0 0];
+  POINTSDATA{194,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{195,1} = [0 0 0 0 0 0];
+  POINTSDATA{195,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{196,1} = [0 0 0 0 0 0];
+  POINTSDATA{196,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{197,1} = [0 0 0 0 0 0];
+  POINTSDATA{197,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{198,1} = [0 0 0 0 0 0];
+  POINTSDATA{198,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{199,1} = [0 0 0 0 0 0];
+  POINTSDATA{199,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{200,1} = [0 0 0 0 0 0];
+  POINTSDATA{200,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{201,1} = [0 0 0 0 0 0];
+  POINTSDATA{201,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{202,1} = [0 0 0 0 0 0];
+  POINTSDATA{202,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{203,1} = [0 0 0 0 0 0];
+  POINTSDATA{203,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{204,1} = [0 0 0 0 0 0];
+  POINTSDATA{204,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{205,1} = [0 0 0 0 0 0];
+  POINTSDATA{205,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{206,1} = [0 0 0 0 0 0];
+  POINTSDATA{206,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{207,1} = [0 0 0 0 0 0];
+  POINTSDATA{207,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{208,1} = [0 0 0 0 0 0];
+  POINTSDATA{208,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{209,1} = [0 0 0 0 0 0];
+  POINTSDATA{209,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{210,1} = [0 0 0 0 0 0];
+  POINTSDATA{210,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{211,1} = [0 0 0 0 0 0];
+  POINTSDATA{211,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{212,1} = [0 0 0 0 0 0];
+  POINTSDATA{212,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{213,1} = [0 0 0 0 0 0];
+  POINTSDATA{213,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{214,1} = [0 0 0 0 0 0];
+  POINTSDATA{214,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{215,1} = [0 0 0 0 0 0];
+  POINTSDATA{215,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{216,1} = [0 0 0 0 0 0];
+  POINTSDATA{216,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{217,1} = [0 0 0 0 0 0];
+  POINTSDATA{217,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{218,1} = [0 0 0 0 0 0];
+  POINTSDATA{218,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{219,1} = [0 0 0 0 0 0];
+  POINTSDATA{219,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{220,1} = [0 0 0 0 0 0];
+  POINTSDATA{220,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{221,1} = [0 0 0 0 0 0];
+  POINTSDATA{221,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{222,1} = [0 0 0 0 0 0];
+  POINTSDATA{222,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{223,1} = [0 0 0 0 0 0];
+  POINTSDATA{223,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{224,1} = [0 0 0 0 0 0];
+  POINTSDATA{224,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{225,1} = [0 0 0 0 0 0];
+  POINTSDATA{225,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{226,1} = [0 0 0 0 0 0];
+  POINTSDATA{226,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{227,1} = [0 0 0 0 0 0];
+  POINTSDATA{227,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{228,1} = [0 0 0 0 0 0];
+  POINTSDATA{228,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{229,1} = [0 0 0 0 0 0];
+  POINTSDATA{229,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{230,1} = [0 0 0 0 0 0];
+  POINTSDATA{230,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{231,1} = [0 0 0 0 0 0];
+  POINTSDATA{231,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{232,1} = [0 0 0 0 0 0];
+  POINTSDATA{232,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{233,1} = [0 0 0 0 0 0];
+  POINTSDATA{233,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{234,1} = [0 0 0 0 0 0];
+  POINTSDATA{234,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{235,1} = [0 0 0 0 0 0];
+  POINTSDATA{235,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{236,1} = [0 0 0 0 0 0];
+  POINTSDATA{236,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{237,1} = [0 0 0 0 0 0];
+  POINTSDATA{237,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{238,1} = [0 0 0 0 0 0];
+  POINTSDATA{238,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{239,1} = [0 0 0 0 0 0];
+  POINTSDATA{239,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{240,1} = [0 0 0 0 0 0];
+  POINTSDATA{240,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{241,1} = [0 0 0 0 0 0];
+  POINTSDATA{241,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{242,1} = [0 0 0 0 0 0];
+  POINTSDATA{242,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{243,1} = [0 0 0 0 0 0];
+  POINTSDATA{243,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{244,1} = [0 0 0 0 0 0];
+  POINTSDATA{244,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{245,1} = [0 0 0 0 0 0];
+  POINTSDATA{245,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{246,1} = [0 0 0 0 0 0];
+  POINTSDATA{246,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{247,1} = [0 0 0 0 0 0];
+  POINTSDATA{247,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{248,1} = [0 0 0 0 0 0];
+  POINTSDATA{248,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{249,1} = [0 0 0 0 0 0];
+  POINTSDATA{249,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{250,1} = [0 0 0 0 0 0];
+  POINTSDATA{250,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{251,1} = [0 0 0 0 0 0];
+  POINTSDATA{251,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{252,1} = [0 0 0 0 0 0];
+  POINTSDATA{252,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{253,1} = [0 0 0 0 0 0];
+  POINTSDATA{253,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{254,1} = [0 0 0 0 0 0];
+  POINTSDATA{254,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{255,1} = [0 0 0 0 0 0];
+  POINTSDATA{255,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{256,1} = [0 0 0 0 0 0];
+  POINTSDATA{256,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{257,1} = [0 0 0 0 0 0];
+  POINTSDATA{257,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{258,1} = [0 0 0 0 0 0];
+  POINTSDATA{258,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{259,1} = [0 0 0 0 0 0];
+  POINTSDATA{259,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{260,1} = [0 0 0 0 0 0];
+  POINTSDATA{260,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{261,1} = [0 0 0 0 0 0];
+  POINTSDATA{261,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{262,1} = [0 0 0 0 0 0];
+  POINTSDATA{262,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{263,1} = [0 0 0 0 0 0];
+  POINTSDATA{263,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{264,1} = [0 0 0 0 0 0];
+  POINTSDATA{264,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{265,1} = [0 0 0 0 0 0];
+  POINTSDATA{265,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{266,1} = [0 0 0 0 0 0];
+  POINTSDATA{266,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{267,1} = [0 0 0 0 0 0];
+  POINTSDATA{267,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{268,1} = [0 0 0 0 0 0];
+  POINTSDATA{268,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{269,1} = [0 0 0 0 0 0];
+  POINTSDATA{269,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{270,1} = [0 0 0 0 0 0];
+  POINTSDATA{270,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{271,1} = [0 0 0 0 0 0];
+  POINTSDATA{271,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{272,1} = [0 0 0 0 0 0];
+  POINTSDATA{272,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{273,1} = [0 0 0 0 0 0];
+  POINTSDATA{273,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{274,1} = [0 0 0 0 0 0];
+  POINTSDATA{274,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{275,1} = [0 0 0 0 0 0];
+  POINTSDATA{275,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{276,1} = [0 0 0 0 0 0];
+  POINTSDATA{276,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{277,1} = [0 0 0 0 0 0];
+  POINTSDATA{277,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{278,1} = [0 0 0 0 0 0];
+  POINTSDATA{278,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{279,1} = [0 0 0 0 0 0];
+  POINTSDATA{279,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{280,1} = [0 0 0 0 0 0];
+  POINTSDATA{280,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{281,1} = [0 0 0 0 0 0];
+  POINTSDATA{281,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{282,1} = [0 0 0 0 0 0];
+  POINTSDATA{282,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{283,1} = [0 0 0 0 0 0];
+  POINTSDATA{283,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{284,1} = [0 0 0 0 0 0];
+  POINTSDATA{284,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{285,1} = [0 0 0 0 0 0];
+  POINTSDATA{285,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{286,1} = [0 0 0 0 0 0];
+  POINTSDATA{286,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{287,1} = [0 0 0 0 0 0];
+  POINTSDATA{287,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{288,1} = [0 0 0 0 0 0];
+  POINTSDATA{288,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{289,1} = [0 0 0 0 0 0];
+  POINTSDATA{289,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{290,1} = [0 0 0 0 0 0];
+  POINTSDATA{290,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{291,1} = [0 0 0 0 0 0];
+  POINTSDATA{291,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{292,1} = [0 0 0 0 0 0];
+  POINTSDATA{292,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{293,1} = [0 0 0 0 0 0];
+  POINTSDATA{293,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{294,1} = [0 0 0 0 0 0];
+  POINTSDATA{294,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{295,1} = [0 0 0 0 0 0];
+  POINTSDATA{295,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{296,1} = [0 0 0 0 0 0];
+  POINTSDATA{296,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{297,1} = [0 0 0 0 0 0];
+  POINTSDATA{297,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{298,1} = [0 0 0 0 0 0];
+  POINTSDATA{298,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{299,1} = [0 0 0 0 0 0];
+  POINTSDATA{299,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{300,1} = [0 0 0 0 0 0];
+  POINTSDATA{300,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{301,1} = [0 0 0 0 0 0];
+  POINTSDATA{301,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{302,1} = [0 0 0 0 0 0];
+  POINTSDATA{302,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{303,1} = [0 0 0 0 0 0];
+  POINTSDATA{303,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{304,1} = [0 0 0 0 0 0];
+  POINTSDATA{304,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{305,1} = [0 0 0 0 0 0];
+  POINTSDATA{305,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{306,1} = [0 0 0 0 0 0];
+  POINTSDATA{306,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{307,1} = [0 0 0 0 0 0];
+  POINTSDATA{307,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{308,1} = [0 0 0 0 0 0];
+  POINTSDATA{308,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{309,1} = [0 0 0 0 0 0];
+  POINTSDATA{309,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{310,1} = [0 0 0 0 0 0];
+  POINTSDATA{310,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{311,1} = [0 0 0 0 0 0];
+  POINTSDATA{311,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{312,1} = [0 0 0 0 0 0];
+  POINTSDATA{312,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{313,1} = [0 0 0 0 0 0];
+  POINTSDATA{313,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{314,1} = [0 0 0 0 0 0];
+  POINTSDATA{314,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{315,1} = [0 0 0 0 0 0];
+  POINTSDATA{315,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{316,1} = [0 0 0 0 0 0];
+  POINTSDATA{316,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{317,1} = [0 0 0 0 0 0];
+  POINTSDATA{317,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{318,1} = [0 0 0 0 0 0];
+  POINTSDATA{318,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{319,1} = [0 0 0 0 0 0];
+  POINTSDATA{319,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{320,1} = [0 0 0 0 0 0];
+  POINTSDATA{320,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{321,1} = [0 0 0 0 0 0];
+  POINTSDATA{321,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{322,1} = [0 0 0 0 0 0];
+  POINTSDATA{322,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{323,1} = [0 0 0 0 0 0];
+  POINTSDATA{323,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{324,1} = [0 0 0 0 0 0];
+  POINTSDATA{324,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{325,1} = [0 0 0 0 0 0];
+  POINTSDATA{325,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{326,1} = [0 0 0 0 0 0];
+  POINTSDATA{326,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{327,1} = [0 0 0 0 0 0];
+  POINTSDATA{327,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{328,1} = [0 0 0 0 0 0];
+  POINTSDATA{328,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{329,1} = [0 0 0 0 0 0];
+  POINTSDATA{329,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{330,1} = [0 0 0 0 0 0];
+  POINTSDATA{330,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{331,1} = [0 0 0 0 0 0];
+  POINTSDATA{331,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{332,1} = [0 0 0 0 0 0];
+  POINTSDATA{332,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{333,1} = [0 0 0 0 0 0];
+  POINTSDATA{333,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{334,1} = [0 0 0 0 0 0];
+  POINTSDATA{334,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{335,1} = [0 0 0 0 0 0];
+  POINTSDATA{335,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{336,1} = [0 0 0 0 0 0];
+  POINTSDATA{336,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{337,1} = [0 0 0 0 0 0];
+  POINTSDATA{337,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{338,1} = [0 0 0 0 0 0];
+  POINTSDATA{338,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{339,1} = [0 0 0 0 0 0];
+  POINTSDATA{339,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{340,1} = [0 0 0 0 0 0];
+  POINTSDATA{340,2} = [0 0 0 0 0 0 0 0 0];
+  POINTSDATA{341,1} = [0 0 0 0 0 0];
+  POINTSDATA{341,2} = [0 0 0 0 0 0 0 0 0];
+
+
+  POINTSDATA{     1 ,2} = [     0       0       0       0       0       0       1       1       1];
+  POINTSDATA{     2 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{     3 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{     4 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{     5 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{     9 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{    10 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{    13 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{    14 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{    20 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{    21 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{    26 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{    27 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{    36 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{    37 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{    44 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{    45 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{    57 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{    58 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{    67 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{    69 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{    83 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{    84 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{    94 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{    95 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   114 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   115 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   128 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   129 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   148 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   150 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   163 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   164 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   187 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   188 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   206 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   207 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   232 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   233 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   253 ,2} = [     0       0       0       0       0       0       1       1       1];
+  POINTSDATA{   254 ,2} = [     0       0       0       0       0       0       1       1       1];
+  POINTSDATA{   257 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   258 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   259 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   260 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   263 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   264 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   265 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   266 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   274 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   275 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   279 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   280 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   283 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   284 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   289 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   290 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   293 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   295 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   301 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   302 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   308 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   309 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   310 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   311 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   318 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   319 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   322 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   323 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   328 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   329 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   331 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   332 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   335 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   336 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   337 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   338 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   339 ,2} = [     0       0       0       0       0       0       1       0       1];
+  POINTSDATA{   340 ,2} = [     0       0       0       0       0       0       0       1       1];
+  POINTSDATA{   341 ,2} = [     0       0       0       0       0       0       1       1       1];
+
+
+% ----------------------------------------------------------------------------------
+% ADDITIONAL CALCULATIONS and CLEARING
+LAYERS = length(ELEMENTSDATA{1,3}.Layers);
+NDOF = 3 * (LAYERS + 1);
+SDOF = NNODE * NDOF;
+
+
+% ----------------------------------------------------------------------------------
+% CALCULATION OF SECTION STIFFNESS AND INERTIA COEFFICIENTS
+for elem = 1:size(ELEMENTSDATA,1)
+    ELEMENTSDATA{elem,3} = ELEMENTSDATA{elem,3}.calcCoeffMatrices();
+    ELEMENTSDATA{elem,3} = ELEMENTSDATA{elem,3}.calcInertiaMatrices();
+end
+clear elem
+clear LAMINAS MATERIALS

@@ -1,11 +1,11 @@
-BeginZE D:\Dropbox\RADOVI RADNO\2 - Paper Meschke\Examples\AL-H250-AL 0.5.gid\AL-H250-AL 0.5.vv
-   x -1.0088098049163818 2.8086361885070801
-   y 1.6030646562576294 -0.31283742189407349
+BeginZE D:\---RADOVI FINISH\===OBJAVLJENI RADOVI\2020 - Composite Structures\1 - Revision R1\Examples\Example 1 FreeVib\AL-H250-AL 0.5.gid\AL-H250-AL 0.5.vv
+   x -0.8244621753692627 2.5229287147521973
+   y 1.240736722946167 -0.44014963507652283
    z -15 15
    e 5
-   v 0 0 0
-   r 1
-   m 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
+   v 0.42069044709205627 -0.064769677817821503 -0.14000646770000458
+   r 0.89399254322052002
+   m 0.95240616798400879 0.19583351910114288 -0.2336059957742691 0 -0.30482545495033264 0.60683548450469971 -0.73405188322067261 0 -0.0019915471784770489 0.77032458782196045 0.63764888048171997 0 0 0 0 1
    c 0 0 0
    pd 0
    pno 0
@@ -19,7 +19,7 @@ BeginZE D:\Dropbox\RADOVI RADNO\2 - Paper Meschke\Examples\AL-H250-AL 0.5.gid\AL
    OGLShadow(RenderMode) RenderNice
    OGLShadow(ShadowBias) -0.002
    OGLShadow(AmbientShadows) 1
-   OGLShadow(UseFBO) 1
+   OGLShadow(UseFBO) 0
    OGLShadow(FBOSize) 2048
    OGLShadow(DimmedLightFactor) 0.02
    OGLStereo(UseStereo) 0
@@ -29,7 +29,7 @@ BeginZE D:\Dropbox\RADOVI RADNO\2 - Paper Meschke\Examples\AL-H250-AL 0.5.gid\AL
    OGLStereo(EyeDistance) 0.075
    OGLStereo(LeftEyeDistance) 1 0 0 1
    OGLStereo(RightEyeDistance) 0 1 1 1
-EndZE D:\Dropbox\RADOVI RADNO\2 - Paper Meschke\Examples\AL-H250-AL 0.5.gid\AL-H250-AL 0.5.vv
+EndZE D:\---RADOVI FINISH\===OBJAVLJENI RADOVI\2020 - Composite Structures\1 - Revision R1\Examples\Example 1 FreeVib\AL-H250-AL 0.5.gid\AL-H250-AL 0.5.vv
 
 BeginMirror
    Mirror 0 Angle 0.0 AngleFake -15.0 SizeFactor 2.0 HeightOffset 0.25 Color #d9e5f24d Backlight Off EdgeStyle No Type Scene DrawMode Mirror
