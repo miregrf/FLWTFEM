@@ -1,0 +1,69 @@
+NUMBER: 1 CONDITION: Composite_Section
+CONDTYPE: over surfaces
+QUESTION: Section_Name:
+VALUE: 
+QUESTION: List_of_Layers:
+VALUE: 
+QUESTION: In_Plane_Integration:#CB#(FULL,RED)
+VALUE: RED
+HELP: Type of Gauss-Legendre Quadrature in the Local Element Plane
+END CONDITION
+NUMBER: 2 CONDITION: Point_Constraints
+CONDTYPE: over points
+CONDMESHTYPE: over nodes
+QUESTION: Ux_top:#CB#(1,0)
+VALUE: 0
+QUESTION: Uy_top:#CB#(1,0)
+VALUE: 0
+QUESTION: Uz_top:#CB#(1,0)
+VALUE: 0
+QUESTION: Ux_bottom:#CB#(1,0)
+VALUE: 0
+QUESTION: Uy_bottom:#CB#(1,0)
+VALUE: 0
+QUESTION: Uz_bottom:#CB#(1,0)
+VALUE: 0
+QUESTION: Ux_ALL:#CB#(1,0)
+VALUE: 0
+DEPENDENCIES: (1, SET,Ux_top,0, SET,Ux_bottom,0)
+DEPENDENCIES: (0, RESTORE,Ux_top,0, RESTORE,Ux_bottom,0)
+QUESTION: Uy_ALL:#CB#(1,0)
+VALUE: 0
+DEPENDENCIES: (1, SET,Uy_top,0, SET,Uy_bottom,0)
+DEPENDENCIES: (0, RESTORE,Uy_top,0, RESTORE,Uy_bottom,0)
+QUESTION: Uz_ALL:#CB#(1,0)
+VALUE: 0
+DEPENDENCIES: (1, SET,Uz_top,0, SET,Uz_bottom,0)
+DEPENDENCIES: (0, RESTORE,Uz_top,0, RESTORE,Uz_bottom,0)
+END CONDITION
+NUMBER: 3 CONDITION: Nodal_Forces
+CONDTYPE: over points
+CONDMESHTYPE: over nodes
+QUESTION: Fx_top:
+VALUE: 0.0
+QUESTION: Fy_top
+VALUE: 0.0
+QUESTION: Fz_top:
+VALUE: 0.0
+QUESTION: Fx_bottom:
+VALUE: 0.0
+QUESTION: Fy_bottom
+VALUE: 0.0
+QUESTION: Fz_bottom:
+VALUE: 0.0
+END CONDITION
+NUMBER: 4 CONDITION: Distributed_Loadings
+CONDTYPE: over surfaces
+QUESTION: Qx_top:
+VALUE: 0.0
+QUESTION: Qy_top:
+VALUE: 0.0
+QUESTION: Qz_top:
+VALUE: 0.0
+QUESTION: Qx_bottom:
+VALUE: 0.0
+QUESTION: Qy_bottom:
+VALUE: 0.0
+QUESTION: Qz_bottom:
+VALUE: 0.0
+END CONDITION

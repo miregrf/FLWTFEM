@@ -1,0 +1,21 @@
+PROBLEM DATA
+TITLE: Analysis
+QUESTION: Analysis_Type:#CB#(Bending_Analysis,Free_Vibration_Analysis)
+VALUE: Bending_Analysis
+DEPENDENCIES: (Bending_Analysis,         RESTORE,Geometric_Nonlinearity,#CURRENT#,  HIDE,Number_of_Modes:,#CURRENT#,     HIDE,Number_of_Steps:,#CURRENT#,  HIDE,Number_of_Iterations:,#CURRENT#,  HIDE,Tolerance:,#CURRENT#)
+DEPENDENCIES: (Free_Vibration_Analysis,  HIDE,Geometric_Nonlinearity,#CURRENT#,     RESTORE,Number_of_Modes:,#CURRENT#,  HIDE,Number_of_Steps:,#CURRENT#,  HIDE,Number_of_Iterations:,#CURRENT#,  HIDE,Tolerance:,#CURRENT#)
+QUESTION: Geometric_Nonlinearity#CB#(1,0)
+VALUE: 0
+DEPENDENCIES: (1,   RESTORE,Number_of_Steps:,#CURRENT#,  RESTORE,Number_of_Iterations:,#CURRENT#,  RESTORE,Tolerance:,#CURRENT#,  HIDE,Number_of_Modes:,#CURRENT#)
+DEPENDENCIES: (0,   HIDE,Number_of_Steps:,#CURRENT#,     HIDE,Number_of_Iterations:,#CURRENT#,     HIDE,Tolerance:,#CURRENT#,     HIDE,Number_of_Modes:,#CURRENT#)
+QUESTION: Number_of_Modes:
+VALUE: 10
+QUESTION: Number_of_Steps:
+VALUE: 2
+QUESTION: Number_of_Iterations:
+VALUE: 10
+QUESTION: Tolerance:
+VALUE: 0.01
+END PROBLEM DATA
+INTERVAL DATA
+END INTERVAL DATA

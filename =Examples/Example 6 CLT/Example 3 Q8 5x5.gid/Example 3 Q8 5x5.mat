@@ -1,0 +1,63 @@
+BOOK:Orthotropic
+NUMBER: 1 MATERIAL: MAT1
+TITLE: Modules_of_Elasticity
+QUESTION: Type:
+VALUE: Orthotropic
+STATE: DISABLED
+QUESTION: E1:
+VALUE: 11e6
+HELP: Elasticity module in direction 1
+QUESTION: E2:
+VALUE: 0.37e6
+HELP: Elasticity module in direction 2
+QUESTION: E3:
+VALUE: 0.37e6
+HELP: Elasticity module in direction 3
+TITLE: Poisson_Ratios
+QUESTION: ni12:
+VALUE: 0.49
+HELP: Poisson ratio 12
+QUESTION: ni13:
+VALUE: 0.39
+HELP: Poisson ratio 13
+QUESTION: ni23:
+VALUE: 0.64
+HELP: Poisson ratio 23
+TITLE: Shear_Modules
+QUESTION: G12:
+VALUE: 0.69e6
+HELP: Shear module 12
+QUESTION: G13:
+VALUE: 0.69e6
+HELP: Shear module 13
+QUESTION: G23:
+VALUE: 0.069e6
+HELP: Shear module 23
+TITLE: Other
+QUESTION: Weight_Density:
+VALUE: 420
+HELP: Weight Density of the Material
+END MATERIAL
+BOOK:Lamina
+NUMBER: 2 MATERIAL: L1
+QUESTION: Type:
+VALUE: Lamina
+STATE: DISABLED
+QUESTION: Material:
+VALUE: MAT1
+QUESTION: Fiber_Angle:
+VALUE: 0.0
+QUESTION: Thickness:
+VALUE: 0.03
+END MATERIAL
+NUMBER: 3 MATERIAL: L2
+QUESTION: Type:
+VALUE: Lamina
+STATE: DISABLED
+QUESTION: Material:
+VALUE: MAT1
+QUESTION: Fiber_Angle:
+VALUE: 90
+QUESTION: Thickness:
+VALUE: 0.03
+END MATERIAL

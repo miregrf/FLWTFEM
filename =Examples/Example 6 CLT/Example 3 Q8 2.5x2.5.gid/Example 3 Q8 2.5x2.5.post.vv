@@ -1,0 +1,68 @@
+BeginZE D:\Dropbox\RADOVI RADNO\1 - Cross Laminated Timber Nemanja Ema\Primeri\EXAMPLE 3\Example 3 Q8 2.5x2.5.gid\Example 3 Q8 2.5x2.5.post.vv
+   x -2.1169369220733643 2.7193992137908936
+   y 1.3619823455810547 -0.99817061424255371
+   z -2.7638540267944336 2.7638540267944336
+   e 2.7638540267944336
+   v 0.082561150193214417 0.10746772587299347 -0.0023350424598902464
+   r 0.99077194929122925
+   m 0.9768904447555542 0.022372307255864143 0.21256645023822784 0 0.013118329457938671 0.98635637760162354 -0.16410042345523834 0 -0.21333758533000946 0.16309666633605957 0.9632686972618103 0 0 0 0 1
+   c 2.5 0.5 0
+   pd 0
+   pno 0
+   pfo 0
+   pf 4
+   pv 0
+   NowUse 2
+   DrawingType 3
+   LightVector 90 90 150 0
+   OGLShadow(UseShadows) 0
+   OGLShadow(RenderMode) RenderNice
+   OGLShadow(ShadowBias) -0.002
+   OGLShadow(AmbientShadows) 1
+   OGLShadow(UseFBO) 0
+   OGLShadow(FBOSize) 2048
+   OGLShadow(DimmedLightFactor) 0.02
+   OGLStereo(UseStereo) 0
+   OGLStereo(RelativeEyeDistance) 1
+   OGLStereo(FlipEyes) 0
+   OGLStereo(StereoMode) AnaglyphColors
+   OGLStereo(EyeDistance) 0.075
+   OGLStereo(LeftEyeDistance) 1 0 0 1
+   OGLStereo(RightEyeDistance) 0 1 1 1
+EndZE D:\Dropbox\RADOVI RADNO\1 - Cross Laminated Timber Nemanja Ema\Primeri\EXAMPLE 3\Example 3 Q8 2.5x2.5.gid\Example 3 Q8 2.5x2.5.post.vv
+
+BeginMirror
+   Mirror 0 Angle 0.0 AngleFake -15.0 SizeFactor 2.0 HeightOffset 0.25 Color #d9e5f24d Backlight Off EdgeStyle No Type Scene DrawMode Mirror
+EndMirror
+
+BeginInfo
+eJzNU8tu2zAQvOsr9hgDiiE7TmoIRQG7VgyhfgS28ujJoKW1Q4QiBZKK5Qb59y4pGz206KFogV6k1T5mOTNUloth97rb60H2QsFF+9EJgkztBfS6H2Jg5gUL2CkNDPYoUfMcNMoCNeowGPnqHW9QUEvJLBRocs0ry5WEC+gNPnTiAACmp1FeVgJLlJa5jrAdvW1HqTl0vRNVbwWO690OdQxHND67trRStVmfWE3HoxA+q7JShvt9KBkNFnDxwI1lnRAmmh3AKnjkslCHEJYVyukMTF1VStsQHMy94XIP/QEhCWK55dbEMCSORUivvUaULtiKGoHJAiJgonpm4Y/ZCEZ5Xpe18JxOCFGLEJ0Rot8hXPVhgpV99rO+Z+j4ypyLMWVcIy2pGy4400fYehHadAS1M0OwI8kdNZe7puMB1Os52USXza4DlWASTTBVloD/uWWQq+r4920iof7YppvBr3zq3bQY9D6BUPR/WBV4HYQ34yFZTJarGN7mPNfKqJ0lITTJ47m8e6GpJVklrmk6Sc/2vbfTq3W6XBDbbq8becPS9d1s9BXSxe1yNR9lvvrmOZEcMAxbNVzgxaC3VwKikO6L43/VD8G0xF3V+N8TpOr6jR8fP0HSSk2i3WolLbTXw1Vn6TzN1rTQfcxZAxk2ttYIa/4N6ZRRf3CuJO3dM5DKgudIjvWjwfCn6gNqeypf37jq6JVx4e4ZvPKCDlZiqcgP4xdEMB8fLZoTDC/rEg5Kv7izyrrcoga1AzyBx3BN3n0JPLHkKUsWTkx//OlsQ4nNdq/ZOa6YQPrFio1tObn8Y7rYmAOrNs9cWsKZzp5ib+s6WZE3cbCkJ9lBJzuH5AzMk8W9S30HP4jBww==
+
+EndInfo
+
+BeginPostState
+BeginSingleMesh
+  Num meshes: 1
+  Num sets: 0
+  Num cuts: 0
+  Mesh: 0
+  State: On
+    Name: "VolumeMesh"
+    IdSet: 2
+    Color Type: 0
+    Color Ambient: 0 0 0.3 0.5
+    Color Diffuse: 0 0 1 0.5
+    Color Specular: 1 1 1 0.5
+    Color Shininess: 0.5
+    Property Massive: 1
+    Property Transparent: 0
+    Property Style: 786446
+    Property Edge Width: 1
+    Property Vector Filter Factor: 0
+    Property Stream Arrow: 0
+  EndMesh: 0
+EndSingleMesh
+  Post_Prefs_Vector_Size: 0 32 32 32
+  ResultView: {Id 9} {Contour Fill} Bending_Analysis 2.0 Deformed_Shape Z 0.0 4 1
+EndPostState
+

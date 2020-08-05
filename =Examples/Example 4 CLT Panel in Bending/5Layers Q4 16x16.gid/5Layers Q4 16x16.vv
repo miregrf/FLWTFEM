@@ -1,0 +1,37 @@
+BeginZE D:/Emilija/doktorske/phd/GLPT-primeri/5Layers Q4 16x16.gid/5Layers Q4 16x16.vv
+   x -1.66643810272216797 3.24643802642822266
+   y 1.93784332275390625 -0.357843339443206787
+   z -1.14784336090087891 1.14784336090087891
+   e 1.14784336090087891
+   v 0.0363988329976121933 0.121768581074312016 0.00201997833475802508
+   r 0.991888851399660099
+   m 0.970336675643920898 0.00485728029161691666 0.241708844900131226 0 0.0128716565668582916 0.997342109680175781 -0.0717152506113052368 0 -0.241414740681648254 0.072699129581451416 0.967695057392120361 0 0 0 0 1
+   c 0.790000021457672119 0.790000021457672119 0
+   pd 0
+   pno 0
+   pfo 0
+   pf 4
+   pv 0
+   NowUse 0
+   DrawingType 0
+   LightVector 90 90 150 0
+   OGLShadow(UseShadows) 0
+   OGLShadow(RenderMode) RenderNice
+   OGLShadow(ShadowBias) -0.002
+   OGLShadow(AmbientShadows) 1
+   OGLShadow(UseFBO) 0
+   OGLShadow(FBOSize) 2048
+   OGLShadow(DimmedLightFactor) 0.02
+   OGLStereo(UseStereo) 0
+   OGLStereo(RelativeEyeDistance) 1
+   OGLStereo(FlipEyes) 0
+   OGLStereo(StereoMode) AnaglyphColors
+   OGLStereo(EyeDistance) 0.075
+   OGLStereo(LeftEyeDistance) 1 0 0 1
+   OGLStereo(RightEyeDistance) 0 1 1 1
+EndZE D:/Emilija/doktorske/phd/GLPT-primeri/5Layers Q4 16x16.gid/5Layers Q4 16x16.vv
+
+BeginMirror
+   Mirror 0 Angle 0.0 AngleFake -15.0 SizeFactor 2.0 HeightOffset 0.25 Color #d9e5f24d Backlight Off EdgeStyle No Type Scene DrawMode Mirror
+EndMirror
+

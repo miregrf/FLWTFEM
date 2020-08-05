@@ -1,0 +1,68 @@
+BeginZE D:\---RADOVI FINISH\===OBJAVLJENI RADOVI\2020 - Thin-Walled Structures\Primeri\EXAMPLE 2\Example 2 Panel 2 Q4 32x32 4QP.gid\Example 2 Panel 2 Q4 32x32 4QP.post.vv
+   x -1.4204065799713135 5.731318473815918
+   y 3.1338138580322266 -0.51224023103713989
+   z -15 15
+   e 5
+   v 0.091893903911113739 0.083735570311546326 0.008381623774766922
+   r 0.99220645427703857
+   m 0.9858362078666687 -0.0012430245988070965 0.16770637035369873 0 0.032022178173065186 0.98297053575515747 -0.18095177412033081 0 -0.16462549567222595 0.18375912308692932 0.96908771991729736 0 0 0 0 1
+   c 0 0 0
+   pd 0
+   pno 0
+   pfo 0
+   pf 4
+   pv 0
+   NowUse 2
+   DrawingType 3
+   LightVector 90 90 150 0
+   OGLShadow(UseShadows) 0
+   OGLShadow(RenderMode) RenderNice
+   OGLShadow(ShadowBias) -0.002
+   OGLShadow(AmbientShadows) 1
+   OGLShadow(UseFBO) 0
+   OGLShadow(FBOSize) 2048
+   OGLShadow(DimmedLightFactor) 0.02
+   OGLStereo(UseStereo) 0
+   OGLStereo(RelativeEyeDistance) 1
+   OGLStereo(FlipEyes) 0
+   OGLStereo(StereoMode) AnaglyphColors
+   OGLStereo(EyeDistance) 0.075
+   OGLStereo(LeftEyeDistance) 1 0 0 1
+   OGLStereo(RightEyeDistance) 0 1 1 1
+EndZE D:\---RADOVI FINISH\===OBJAVLJENI RADOVI\2020 - Thin-Walled Structures\Primeri\EXAMPLE 2\Example 2 Panel 2 Q4 32x32 4QP.gid\Example 2 Panel 2 Q4 32x32 4QP.post.vv
+
+BeginMirror
+   Mirror 0 Angle 0.0 AngleFake -15.0 SizeFactor 2.0 HeightOffset 0.25 Color #d9e5f24d Backlight Off EdgeStyle No Type Scene DrawMode Mirror
+EndMirror
+
+BeginInfo
+eJzNU8tu2zAQvOsr9hgDiiE7TmoIRQG7VgyhfgS28ujJoKW1Q4QiBZKK5Qb59y4pGz206KFogV6k1T5mOTNUloth97rb60H2QsFF+9EJgkztBfS6H2Jg5gUL2CkNDPYoUfMcNMoCNeowGPnqHW9QUEvJLBRocs0ry5WEC+gNPnTiAACmp1FeVgJLlJa5jrAdvW1HqTl0vRNVbwWO690OdQxHND67trRStVmfWE3HoxA+q7JShvt9KBkNFnDxwI1lnRAmmh3AKnjkslCHEJYVyukMTF1VStsQHMy94XIP/QEhCWK55dbEMCSORUivvUaULtiKGoHJAiJgonpm4Y/ZCEZ5Xpe18JxOCFGLEJ0Rot8hXPVhgpV99rO+Z+j4ypyLMWVcIy2pGy4400fYehHadAS1M0OwI8kdNZe7puMB1Os52USXza4DlWASTTBVloD/uWWQq+r4920iof7YppvBr3zq3bQY9D6BUPR/WBV4HYQ34yFZTJarGN7mPNfKqJ0lITTJ47m8e6GpJVklrmk6Sc/2vbfTq3W6XBDbbq8becPS9d1s9BXSxe1yNR9lvvrmOZEcMAxbNVzgxaC3VwKikO6L43/VD8G0xF3V+N8TpOr6jR8fP0HSSk2i3WolLbTXw1Vn6TzN1rTQfcxZAxk2ttYIa/4N6ZRRf3CuJO3dM5DKgudIjvWjwfCn6gNqeypf37jq6JVx4e4ZvPKCDlZiqcgP4xdEMB8fLZoTDC/rEg5Kv7izyrrcoga1AzyBx3BN3n0JPLHkKUsWTkx//OlsQ4nNdq/ZOa6YQPrFio1tObn8Y7rYmAOrNs9cWsKZzp5ib+s6WZE3cbCkJ9lBJzuH5AzMk8W9S30HP4jBww==
+
+EndInfo
+
+BeginPostState
+BeginSingleMesh
+  Num meshes: 1
+  Num sets: 0
+  Num cuts: 0
+  Mesh: 0
+  State: On
+    Name: "VolumeMesh"
+    IdSet: 2
+    Color Type: 0
+    Color Ambient: 0 0 0.3 0.5
+    Color Diffuse: 0 0 1 0.5
+    Color Specular: 1 1 1 0.5
+    Color Shininess: 0.5
+    Property Massive: 1
+    Property Transparent: 0
+    Property Style: 786446
+    Property Edge Width: 1
+    Property Vector Filter Factor: 0
+    Property Stream Arrow: 0
+  EndMesh: 0
+EndSingleMesh
+  Post_Prefs_Vector_Size: 0 32 32 32
+  ResultView: {Id 15} {Contour Fill} Bending_Analysis 2.0 Deformed_Shape |Deformed_Shape| 0.0 4 1
+EndPostState
+
