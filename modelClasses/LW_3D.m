@@ -16,7 +16,12 @@ classdef LW_3D < LW_L1
         Displacements;
         
         StressesXYZ;
-        Stresses123
+        Stresses123;
+        StressesNodalXYZ;
+        
+        StrainsXYZ;
+        Strains123;
+        StrainsNodalXYZ;        
     end
     
     methods
@@ -343,9 +348,100 @@ classdef LW_3D < LW_L1
                         obj.StressesXYZ(4, micro, layer, gp)  =  CONSTANTS(1,layer,2)*SubThickness^2 + CONSTANTS(2,layer,2)*SubThickness + CONSTANTS(3,layer,2);
                         obj.StressesXYZ(3, micro, layer, gp)  =  CONSTANTS(1,layer,3)*SubThickness^2 + CONSTANTS(2,layer,3)*SubThickness + CONSTANTS(3,layer,3);
                         
+                        for stress = 1:6
+                            obj.StressesNodalXYZ(stress, micro, layer, :) = obj.ExtrapolationMatrix * reshape(obj.StressesXYZ(stress, micro, layer, :), ngaus, 1);
+                        end
+                        
                         % Transformation of Stress Components to Material Coordinates of the Current Layer
                         obj.Stresses123(:, micro, layer, gp) = obj.Section.Layers(layer).MatrixR * obj.StressesXYZ(:, micro, layer, gp);
                         
+                    end % MicroLayer
+                end % Gauss Points
+                
+            end%Layers
+                
+        end
+        
+        
+        % Calculate Element Strains
+        function obj = CalcStrains(obj, sublayers)
+            ngaus   = size(obj.GaussPointsStress,1);
+            nlayers = length(obj.Section.Layers);
+            nnodes  = length(obj.ElementNodes);    
+            
+            % StrainMatrixGaussXYZ
+            % Rows    = Six Componental Strains EpsXX EpsYY EpsZZ GammaYZ GammaXZ GammaXY
+            % Columns = Two Interfaces (Bottom and Top) of the Current Elem
+            % Third   = Layer
+            % Fourth  = Gauss Points
+            StrainMatrixGaussXYZ = zeros(6, 2, nlayers, ngaus);
+            
+            % StrainXYZ
+            % Rows    = Six Componental Strains EpsXX EpsYY EpsZZ GammaYZ GammaXZ GammaXY - Final Vaules
+            % Columns = Interfaces (sublayers+1) of the Current Elem
+            % Third   = Layer
+            % Fourth  = Gauss Points
+            obj.StrainsXYZ = zeros(6, sublayers+1, nlayers, ngaus);             
+
+            % Loop Through all Numerical Layers
+            for layer = 1:nlayers
+                h    = obj.Section.Layers(layer).Thickness;
+                
+                %Extract Nodal Displacements at the Bottom and the Top of the Current Numerical Layer of the Finite Element
+                Disp_Bottom = obj.Displacements( (layer-1)*3*nnodes+1 :   layer  *3*nnodes);
+                Disp_Top    = obj.Displacements(  layer   *3*nnodes+1 : (layer+1)*3*nnodes);
+                
+                % Loop Gauss Points
+                for gp = 1:ngaus
+                    
+                    xi  = obj.GaussPointsStress(gp,1);
+                    eta = obj.GaussPointsStress(gp,2);
+                    
+                    [shape,NatDev,~] = Shape(obj.ElementType, xi, eta);
+                    
+                    J11 = NatDev(:,1)' * obj.NodalCoordinates(:,1);
+                    J12 = NatDev(:,1)' * obj.NodalCoordinates(:,2);
+                    J21 = NatDev(:,2)' * obj.NodalCoordinates(:,1);
+                    J22 = NatDev(:,2)' * obj.NodalCoordinates(:,2);
+                    detJ = J11*J22 - J12*J21;
+                    invJ = 1/detJ * [J22 -J21; -J12 J11];
+                    XYDev = NatDev * invJ;
+                    
+                    MatrixB1    = zeros(3, 3*nnodes);
+                    MatrixB2    = kron(shape, [0 0 1]);
+                    MatrixBbar1 = kron(shape, [1 0 0;0 1 0]);
+                    MatrixBbar2 = zeros(2, 3*nnodes);
+                    
+                    for i = 1:nnodes
+                        MatrixB1   (:, 3*i-2:3*i) = [XYDev(i,1) 0 0; 0 XYDev(i,2) 0; XYDev(i,2) XYDev(i,1) 0];
+                        MatrixBbar2(:, 3*i-2:3*i) = [0 0  XYDev(i,1); 0 0  XYDev(i,2)];
+                    end
+                    
+                    % Calculate PreliminaryStrainsMatrix in the Current Gauss Point - All Strains are Linear and Discontinuous at Layer Interfaces.
+                    StrainMatrixGaussXYZ([1 2 6], 1, layer, gp) =  MatrixB1 * Disp_Bottom;
+                    StrainMatrixGaussXYZ([1 2 6], 2, layer, gp) =  MatrixB1 * Disp_Top;
+                    StrainMatrixGaussXYZ(  3,    1, layer, gp) =  MatrixB2 * (Disp_Top-Disp_Bottom) / h;
+                    StrainMatrixGaussXYZ(  3,    2, layer, gp) =  MatrixB2 * (Disp_Top-Disp_Bottom) / h;
+                    StrainMatrixGaussXYZ([5 4],   1, layer, gp) =  MatrixBbar2 * Disp_Bottom  +  MatrixBbar1 * (Disp_Top-Disp_Bottom) / h;
+                    StrainMatrixGaussXYZ([5 4],   2, layer, gp) =  MatrixBbar2 * Disp_Top     +  MatrixBbar1 * (Disp_Top-Disp_Bottom) / h;
+                    
+                end% Gauss Points
+            end%Layers
+            
+            for layer = 1:nlayers
+                for gp = 1:ngaus
+                    for micro = 1:sublayers+1
+                        A = StrainMatrixGaussXYZ(:, 1, layer, gp);
+                        B = StrainMatrixGaussXYZ(:, 2, layer, gp);
+                        obj.StrainsXYZ(:, micro, layer, gp)  =  A + (B-A)/sublayers*(micro-1);
+                        
+                        for strain = 1:6
+                            obj.StrainsNodalXYZ(strain, micro, layer, :) = obj.ExtrapolationMatrix * reshape(obj.StrainsXYZ(strain, micro, layer, :), ngaus, 1);
+                        end    
+                        
+                        % Transformation of Stress Components to Material Coordinates of the Current Layer
+                        obj.Strains123(:, micro, layer, gp) = obj.Section.Layers(layer).MatrixR' * obj.StrainsXYZ(:, micro, layer, gp);
+               
                     end % MicroLayer
                 end % Gauss Points
                 

@@ -15,6 +15,7 @@ classdef LW_L1
         ElementNodes;
         DistributedLoad;
         NodalCoordinates;
+        ExtrapolationMatrix;
         
         GaussPointsK;        GaussCoefsK;
         GaussPointsM;        GaussCoefsM;
@@ -58,6 +59,20 @@ classdef LW_L1
                 obj.GaussPointsStress = points3;
                 obj.GaussCoefsStress  = coeffs3;
             end
+            
+            if strcmp(obj.ElementType,'T3') == 1
+                obj.ExtrapolationMatrix = [ 1 -1  1;
+                                            1  1 -1;
+                                           -1  1  1 ];
+            elseif strcmp(obj.ElementType,'T6') == 1
+                obj.ExtrapolationMatrix = [ 1 -1  1;
+                                            1  1 -1;
+                                           -1  1  1;
+                                            1  0  0;
+                                            0  1  0;
+                                            0  0  1 ];
+            end
+                
 
             
             % Q4  Element
@@ -75,6 +90,11 @@ classdef LW_L1
                 
                 obj.GaussPointsStress = points4;
                 obj.GaussCoefsStress  = coeffs4;
+                
+                obj.ExtrapolationMatrix = [ 1+sqrt(3)/2 -1/2           1-sqrt(3)/2  -1/2;
+                                           -1/2          1+sqrt(3)/2  -1/2           1-sqrt(3)/2;
+                                            1-sqrt(3)/2 -1/2           1+sqrt(3)/2  -1/2;
+                                           -1/2          1-sqrt(3)/2  -1/2           1+sqrt(3)/2];
                     
                 if strcmp(obj.Integration, 'RED') == 1
                     obj.GaussPointsK = points1;
@@ -97,6 +117,15 @@ classdef LW_L1
                     
                 obj.GaussPointsStress = points4;
                 obj.GaussCoefsStress  = coeffs4;
+                
+                obj.ExtrapolationMatrix = [ 1+sqrt(3)/2 -1/2            1-sqrt(3)/2  -1/2;
+                                           -1/2          1+sqrt(3)/2   -1/2           1-sqrt(3)/2;
+                                            1-sqrt(3)/2 -1/2            1+sqrt(3)/2  -1/2;
+                                           -1/2          1-sqrt(3)/2   -1/2           1+sqrt(3)/2;
+                                           (1+sqrt(3))/4 (1+sqrt(3))/4 (1-sqrt(3))/4 (1-sqrt(3))/4;
+                                           (1-sqrt(3))/4 (1+sqrt(3))/4 (1+sqrt(3))/4 (1-sqrt(3))/4;
+                                           (1-sqrt(3))/4 (1-sqrt(3))/4 (1+sqrt(3))/4 (1+sqrt(3))/4;
+                                           (1+sqrt(3))/4 (1-sqrt(3))/4 (1-sqrt(3))/4 (1+sqrt(3))/4];
                     
                 if strcmp(obj.Integration, 'RED') == 1
                     obj.GaussPointsK = points4;

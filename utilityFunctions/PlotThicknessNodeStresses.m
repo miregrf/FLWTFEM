@@ -5,7 +5,7 @@
 %               Emilija Damnjanovic, MSc Civil Eng.
 %               Belgrade, 2019.
 %--------------------------------------------------------------------------
-function PlotThicknessGauss(FE, gp, cs, LAYERS, SUBLAYERS)
+function PlotThicknessNodeStresses(FE, node, cs, LAYERS, SUBLAYERS)
 
     PlotX1 = zeros(LAYERS*(SUBLAYERS+1), 6);
     PlotY1 = zeros(LAYERS*(SUBLAYERS+1), 1);
@@ -18,22 +18,24 @@ function PlotThicknessGauss(FE, gp, cs, LAYERS, SUBLAYERS)
         h     = FE.Section.Layers(layer).Thickness;
         h_all = h_all + h;
         
-        for sub = 1:SUBLAYERS+1
+        for micro = 1:SUBLAYERS+1
             count = count + 1;
             zz    = zz + h/SUBLAYERS;
             
-            if strcmp(cs, 'XYZ') == 1
-                PlotX1(count,:) = FE.StressesXYZ(:,sub,layer,gp)';
+            if strcmp(cs,'XYZ') == 1
+                PlotX1(count,:) = FE.StressesNodalXYZ(:,micro,layer,node)';
             else
-                PlotX1(count,:) = FE.Stresses123(:,sub,layer,gp)';
+                PlotX1(count,:) = FE.StressesNodalXYZ(:,micro,layer,node)';
             end
-            PlotY1(count)   = h_before + h/SUBLAYERS*(sub-1);
+            PlotY1(count)   = h_before + h/SUBLAYERS*(micro-1);
         end
         
         h_before = h_before+h;
         
     end
     PlotY1 = (PlotY1-h_all/2) / h_all;
+    PlotX1(:,4)
+    PlotY1
     
 %% PLOT
 
@@ -41,7 +43,7 @@ function PlotThicknessGauss(FE, gp, cs, LAYERS, SUBLAYERS)
     minX = min ( min(PlotX1(:,:)) );
     
     figure
-%     suptitle('Stress Distribution through the Thickness of the Plate - GAUSS')
+%     suptitle('Stress Distribution through the Thickness of the Plate - NODE')
     plot1 = subplot(2,3,1);
     plot(PlotX1(:,1),PlotY1)
     xlabel('SigmaXX'); ylabel('z / h');

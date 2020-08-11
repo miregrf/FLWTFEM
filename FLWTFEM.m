@@ -152,6 +152,8 @@ disp('GENERATION OF GLOBAL COMPUTATIONAL MODEL...')
             FEs(elem).Displacements = FINALDISP( FEs(elem).IndexDOF,  1);
             % Post-Processing of Stresses
             FEs(elem) = FEs(elem).CalcStresses(SUBLAYERS);
+            % Post-Processing of Strains
+            FEs(elem) = FEs(elem).CalcStrains(SUBLAYERS);
         end
     end
     clear Knn Mnn Sn elem vector values number mode
